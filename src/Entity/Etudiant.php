@@ -19,12 +19,12 @@ class Etudiant
 
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $prenom;
 
@@ -33,34 +33,34 @@ class Etudiant
         H, F
     */
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $sexe;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $age;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $telephone;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $email;
 
     /////////////////////////////////////////////////
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=false)
      */
     private $date_naiss;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $lieu_naiss;
 
@@ -69,7 +69,7 @@ class Etudiant
         FRANÇAISE, VANUATAISE
     */
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $nationalite;
 
@@ -78,24 +78,24 @@ class Etudiant
         6 chiffres
     */
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $num_cafat;
 
     /////////////////////////////////////////////////
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $adresse;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $bp;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $cp;
 
@@ -107,7 +107,7 @@ class Etudiant
         CANALA, OUVÉA, LIFOU, MARÉ, WALLIS, SUISSE, MADAGASCAR, AFRIQUE, THAILANDE, VANUATU, TAHITI
     */
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $commune;
 
@@ -118,12 +118,12 @@ class Etudiant
         SALARIÉ, ÉTUDIANT, ALTERNANT, À LA RECHERCHE D’EMPLOI, PATENTÉ
     */
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $annee_prec;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $dernier_emploi;
 
@@ -136,7 +136,7 @@ class Etudiant
         LYCÉE DE POUEMBOUT, LYCÉE SAINT JOSEPH DE CLUNY, IUT- UNC, CCI, UNC, AUTRES/AILLEURS
     */
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $etablissement;
 
@@ -151,12 +151,12 @@ class Etudiant
         BTS PILOTE DE PROCÉDÉS, BTS MÉTIERS DES SERVICES À L’ENVIRONNEMENT, BTS BIOANALYSES ET CONTRÔLES, BTS SYSTÈMES NUMÉRIQUES, AUTRE DIPLÔMES
     */
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $dernier_diplome;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $annee_dernier_diplome;
 
@@ -171,19 +171,19 @@ class Etudiant
         BTS PILOTE DE PROCÉDÉS, BTS MÉTIERS DES SERVICES À L’ENVIRONNEMENT, BTS BIOANALYSES ET CONTRÔLES, BTS SYSTÈMES NUMÉRIQUES, AUTRE DIPLÔMES
     */
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $diplome_en_cours;
 
     /////////////////////////////////////////////////
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=false)
      */
     private $handicap;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=false)
      */
     private $droit_img;
 
@@ -194,7 +194,7 @@ class Etudiant
         ALTERNANCE, FORMATION CONTINUE, VAE, VEEPAP
     */
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $type_formation;
 
@@ -206,7 +206,7 @@ class Etudiant
         LP COLLABORATEUR SOCIAL ET PAIE
     */
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $licence;
 
@@ -217,7 +217,7 @@ class Etudiant
         OUI, NON, PEUT-ÊTRE
     */
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $decua_rempli;
 
@@ -226,7 +226,7 @@ class Etudiant
         OUI, NON, DECUA VALIDÉ
     */
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $admissibilite;
 
@@ -235,7 +235,7 @@ class Etudiant
         OUI, DÉSISTEMENT, NON ADMISSIBLE, NON
     */
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $confirm_entretien;
 
@@ -244,24 +244,24 @@ class Etudiant
         OUI, NON, LC 1, LC 2, LC 3, LC 4, LC 5, LC 6
     */
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $admis_list_comp;
 
     /////////////////////////////////////////////////
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=false)
      */
     private $presence_info_cfa;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=false)
      */
     private $presence_atelier;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=false)
      */
     private $presence_job_dating;
 
