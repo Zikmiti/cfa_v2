@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{path('css/bootstrap/bootstrap.css')}}">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
+        <script src="{{path('js/jquery/jquery-3.5.1.js')}}"></script>
+        <script src="{{path('js/bootstrap/bootstrap.js')}}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
