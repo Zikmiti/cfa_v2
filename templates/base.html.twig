@@ -11,9 +11,81 @@
 
     </head>
     <body>
-        {% block body %}{% endblock %}
+    {# modal #}
+		<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalTitle" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">
+								<i class="fas fa-times"></i>
+							</span>
+						</button>
+					</div>
+					<div class="modal-body">
+					<div id="spinner"><div></div><div></div><div></div><div></div></div>
+					<div id="PartialView"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{# fin modal  #}
+<div id="wrapper">
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+					<li id="Accueil">
+						<a title="Accueil" class="fas fa-home fa-2x" href="{{path('home')}}"></a>
+						<small>Accueil</small>
+					</li>
+					<li id="Formations">
+						<a title="Formations" class="fas fa-list-alt fa-2x" href="#"></a>
+						<small>Formations</small>
+					</li>
+					<li id="Etudiants">
+						<a title="Etudiants" class="fas fa-user-graduate fa-2x" href="#"></a>
+						<small>Etudiants</small>
+					</li>
+					<li id="Entreprise">
+						<a title="Entreprise" class="fas fa-building fa-2x" href="#"></a>
+						<small>Entreprise</small>
+					</li>
+					<li id="Tuteurs">
+						<a title="Tuteurs" class="fas fa-user-tie fa-2x" href="#"></a>
+						<small>Tuteurs</small>
+					</li>
+					<li id="Campagne">
+						<a title="Campagne" class="fas fa-hands-helping fa-2x" href="#"></a>
+						<small>Campagne</small>
+					</li>
+					<li id="Rayonnement">
+						<a title="Rayonnement" class="fas fa-folder fa-2x" href="#"></a>
+						<small>Rayonnement</small>
+					</li>
+					<li>
+						<a title="Déconnexion" href="{{path('app_logout')}}" class="fas fa-sign-out-alt fa-2x"></a>
+						<small>Deconnexion</small>
+					</li>
+				</ul>
+			</div>
+			<div id="page-content-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<a href="#" class="btn" id="menu-toggle">
+								<span class="fas fa-list flat-color-2"></span>
+							</a>
+
+							{% block body %}{% endblock %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
         <script src="{{asset('js/jquery/jquery-3.5.1.js')}}"></script>
         <script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
+		<script src="{{asset('js/chart/chart.js')}}"></script>
+		<script src="{{asset('js/script.js')}}"></script>
+        <script src="https://kit.fontawesome.com/6b764694ff.js" crossorigin="anonymous"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

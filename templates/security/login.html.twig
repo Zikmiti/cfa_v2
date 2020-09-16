@@ -23,18 +23,18 @@
 						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 					{% endif %}
 					<span class="login100-form-title p-b-51">
-						<img id="logocfa" src="{{asset('images/cfasup.jpg')}}">
+						<img id="logocfa" src="{{asset('images/cfasup.png')}}">
 					</span>
 
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
-						<input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="input100" required autofocus>
+						<input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="input100" placeholder="identifiant" required autofocus>
 						<span class="focus-input100"></span>
 					</div>
 
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
-						<input type="password" name="password" id="inputPassword" class="input100" required>
+						<input type="password" name="password" id="inputPassword" class="input100" placeholder="mot de passe" required>
 						<span class="focus-input100"></span>
 					</div>
 
