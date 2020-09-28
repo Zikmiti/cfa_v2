@@ -14,7 +14,7 @@ class AppFixtures extends Fixture
     {
         $faker = Faker\Factory::create('fr_FR');
 
-        $tEtudiants = array();
+        $tEntreprises = array();
 
         $tSexe = array('H','F'); //2
         $tNationalite = array('FRANÇAISE','VANUATAISE'); //2
@@ -51,6 +51,43 @@ class AppFixtures extends Fixture
             'Société en participation','Groupement d’intérêt économique','Société anonyme','Société par actions simplifiée',
             'Société en nom collectif'); //7
 
+
+        /////////////////////////////////
+        //         ENTREPRISES         //
+        /////////////////////////////////
+
+        for($j = 0; $j <= 150; $j++) {
+            $company = $faker->company;
+            $ridet = '0 '.random_int(1,9).random_int(1,9).random_int(1,9).' '.random_int(1,9).random_int(1,9).random_int(1,9).'.'.'00'.random_int(1,3);
+            $cafat = $faker->randomNumber(6,false);
+            $naf = '0'.random_int(1,9).random_int(1,9).random_int(1,9).'Z';
+            $tel = ''.random_int(4,9).''.random_int(0,9).'.'.random_int(0,9).''.random_int(0,9).'.'.random_int(0,9).''.random_int(0,9);
+            $statut = $tStatut[random_int(0,6)];
+
+            $entreprise = new Entreprise();
+
+            $entreprise->setEnseigne($company);
+            $entreprise->setRaisonSociale($company);
+            $entreprise->setRidet($ridet);
+            $entreprise->setNumCafat($cafat);
+            $entreprise->setCodeNaf($naf);
+            $entreprise->setAdresseExec($faker->streetAddress);
+            $entreprise->setCpExec($faker->postcode);
+            $entreprise->setCommuneExec($faker->city);
+            $entreprise->setAdresseSiege($faker->streetAddress);
+            $entreprise->setCpSiege($faker->postcode);
+            $entreprise->setCommuneSiege($faker->city);
+            $entreprise->setTelephone($tel);
+            $entreprise->setEmail($faker->freeEmail);
+            $entreprise->setConventionCollective('Convention collective');
+            $entreprise->setStatut($statut);
+            $entreprise->setNbSalaries(random_int(1,200));
+
+            array_push($tEntreprises,$entreprise);
+
+            $manager->persist($entreprise);
+        }
+
         /////////////////////////////////
         //          ETUDIANTS          //
         /////////////////////////////////
@@ -63,6 +100,11 @@ class AppFixtures extends Fixture
             $strDdn = ''.random_int(1,2).''.random_int(0,9).'/0'.random_int(1,9).'/'.(2020-$age);
             $ddn = \DateTime::createFromFormat("d/m/Y",$strDdn);
             $anneePrec = $tAnneePrec[random_int(0,4)];
+            $hasEntreprise = $tBool[random_int(0,1)];
+
+            $entrepriseNull = new Entreprise();
+
+            echo $entrepriseNull->getEnseigne();
 
             $etudiant = new Etudiant();
 
@@ -100,55 +142,16 @@ class AppFixtures extends Fixture
             $etudiant->setInscription($tInscription[random_int(0,2)]);
             $etudiant->setObservations("observations");
 
-            array_push($tEtudiants,$etudiant);
-
-            $manager->persist($etudiant);
-        }
-
-        /////////////////////////////////
-        //         ENTREPRISES         //
-        /////////////////////////////////
-
-        for($j = 0; $j <= 150; $j++) {
-            $company = $faker->company;
-            $ridet = '0 '.random_int(1,9).random_int(1,9).random_int(1,9).' '.random_int(1,9).random_int(1,9).random_int(1,9).'.'.'00'.random_int(1,3);
-            $cafat = $faker->randomNumber(6,false);
-            $naf = '0'.random_int(1,9).random_int(1,9).random_int(1,9).'Z';
-            $tel = ''.random_int(4,9).''.random_int(0,9).'.'.random_int(0,9).''.random_int(0,9).'.'.random_int(0,9).''.random_int(0,9);
-            $statut = $tStatut[random_int(0,6)];
-
-            $nbEtudiants = random_int(0,1);
-
-            $entreprise = new Entreprise();
-
-            $entreprise->setEnseigne($company);
-            $entreprise->setRaisonSociale($company);
-            $entreprise->setRidet($ridet);
-            $entreprise->setNumCafat($cafat);
-            $entreprise->setCodeNaf($naf);
-            $entreprise->setAdresseExec($faker->streetAddress);
-            $entreprise->setCpExec($faker->postcode);
-            $entreprise->setCommuneExec($faker->city);
-            $entreprise->setAdresseSiege($faker->streetAddress);
-            $entreprise->setCpSiege($faker->postcode);
-            $entreprise->setCommuneSiege($faker->city);
-            $entreprise->setTelephone($tel);
-            $entreprise->setEmail($faker->freeEmail);
-            $entreprise->setConventionCollective('Convention collective');
-            $entreprise->setStatut($statut);
-            $entreprise->setNbSalaries(random_int(1,200));
-
-           if($nbEtudiants > 0 && count($tEtudiants) > 0) {
-                $size = count($tEtudiants);
-                $indexEtudiant = random_int(0,$size-1);
-                if($tEtudiants[$indexEtudiant] != null) {
-                    $etudiantTmp = $tEtudiants[$indexEtudiant];
-                    $entreprise->addEtudiant($etudiantTmp);
-                    array_splice($tEtudiants, 0, $indexEtudiant, null);
-                }
+            if($hasEntreprise && count($tEntreprises) > 0) { // si l'étudiant possède 1 entreprise et si le tableau des entreprises n'est pas vide
+                $size = count($tEntreprises); // on récupère la longueur du tableau
+                $index = random_int(0,$size-1); // on récupère l'index de l'élément du tableau à ajouter
+                while($tEntreprises[$index] == null) { $index = random_int(0,$size-1); }
+                $entrepriseTmp = $tEntreprises[$index]; // on récupère l'entreprise
+                $etudiant->addEntreprise($entrepriseTmp); // on ajoute l'entreprise à la liste des entreprises de l'étudiant
+                array_splice($tEntreprises, $index, 1, null); // on met à null l'élément du tableau correspondant à l'entreprise ajouté
             }
 
-            $manager->persist($entreprise);
+            $manager->persist($etudiant);
         }
 
         $manager->flush();
