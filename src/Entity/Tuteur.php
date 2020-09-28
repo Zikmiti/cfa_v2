@@ -191,36 +191,36 @@ class Tuteur
         return $this;
     }
 
-    public function getDateHabilitation(): ?\DateTimeInterface
+    public function getDateHabilitation(): ?\DateTime
     {
         return $this->date_habilitation;
     }
 
-    public function setDateHabilitation(?\DateTimeInterface $date_habilitation): self
+    public function setDateHabilitation(?\DateTime $date_habilitation): self
     {
         $this->date_habilitation = $date_habilitation;
 
         return $this;
     }
 
-    public function getDateDiplome(): ?\DateTimeInterface
+    public function getDateDiplome(): ?\DateTime
     {
         return $this->date_diplome;
     }
 
-    public function setDateDiplome(\DateTimeInterface $date_diplome): self
+    public function setDateDiplome(\DateTime $date_diplome): self
     {
         $this->date_diplome = $date_diplome;
 
         return $this;
     }
 
-    public function getDateEnvoiEmailTutorat(): ?\DateTimeInterface
+    public function getDateEnvoiEmailTutorat(): ?\DateTime
     {
         return $this->date_envoi_email_tutorat;
     }
 
-    public function setDateEnvoiEmailTutorat(?\DateTimeInterface $date_envoi_email_tutorat): self
+    public function setDateEnvoiEmailTutorat(?\DateTime $date_envoi_email_tutorat): self
     {
         $this->date_envoi_email_tutorat = $date_envoi_email_tutorat;
 
