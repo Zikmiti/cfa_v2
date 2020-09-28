@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EtudiantRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -283,6 +285,22 @@ class Etudiant
      */
     private $observations;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Entreprise::class, inversedBy="etudiants")
+     */
+    private $entreprises;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Tuteur::class, mappedBy="etudiants")
+     */
+    private $tuteurs;
+
+    public function __construct()
+    {
+        $this->entreprises = new ArrayCollection();
+        $this->tuteurs = new ArrayCollection();
+    }
+
 
     /////////////////////////////////////////////////
     //              GETTERS & SETTERS              //
@@ -302,8 +320,8 @@ class Etudiant
     public function getAge(): ?int { return $this->age; }
     public function setAge(int $age): self { $this->age = $age; return $this; }
 
-    public function getDateNaiss(): ?\DateTimeInterface { return $this->date_naiss; }
-    public function setDateNaiss(\DateTimeInterface $date_naiss): self { $this->date_naiss = $date_naiss; return $this; }
+    public function getDateNaiss(): ?\DateTime { return $this->date_naiss; }
+    public function setDateNaiss(\DateTime $date_naiss): self { $this->date_naiss = $date_naiss; return $this; }
 
     public function getLieuNaiss(): ?string { return $this->lieu_naiss; }
     public function setLieuNaiss(string $lieu_naiss): self { $this->lieu_naiss = $lieu_naiss; return $this; }
@@ -388,4 +406,58 @@ class Etudiant
 
     public function getLicence(): ?string { return $this->licence; }
     public function setLicence(string $licence): self { $this->licence = $licence; return $this; }
+
+    /**
+     * @return Collection|Entreprise[]
+     */
+    public function getEntreprises(): Collection
+    {
+        return $this->entreprises;
+    }
+
+    public function addEntreprise(Entreprise $entreprise): self
+    {
+        if (!$this->entreprises->contains($entreprise)) {
+            $this->entreprises[] = $entreprise;
+        }
+
+        return $this;
+    }
+
+    public function removeEntreprise(Entreprise $entreprise): self
+    {
+        if ($this->entreprises->contains($entreprise)) {
+            $this->entreprises->removeElement($entreprise);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Tuteur[]
+     */
+    public function getTuteurs(): Collection
+    {
+        return $this->tuteurs;
+    }
+
+    public function addTuteur(Tuteur $tuteur): self
+    {
+        if (!$this->tuteurs->contains($tuteur)) {
+            $this->tuteurs[] = $tuteur;
+            $tuteur->addEtudiant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTuteur(Tuteur $tuteur): self
+    {
+        if ($this->tuteurs->contains($tuteur)) {
+            $this->tuteurs->removeElement($tuteur);
+            $tuteur->removeEtudiant($this);
+        }
+
+        return $this;
+    }
 }

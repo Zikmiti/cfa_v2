@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TuteurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -71,6 +73,22 @@ class Tuteur
      * @ORM\Column(type="date", nullable=true)
      */
     private $date_envoi_email_tutorat;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Entreprise::class, inversedBy="tuteurs")
+     */
+    private $entreprises;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Etudiant::class, inversedBy="tuteurs")
+     */
+    private $etudiants;
+
+    public function __construct()
+    {
+        $this->entreprises = new ArrayCollection();
+        $this->etudiants = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -205,6 +223,58 @@ class Tuteur
     public function setDateEnvoiEmailTutorat(?\DateTimeInterface $date_envoi_email_tutorat): self
     {
         $this->date_envoi_email_tutorat = $date_envoi_email_tutorat;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Entreprise[]
+     */
+    public function getEntreprises(): Collection
+    {
+        return $this->entreprises;
+    }
+
+    public function addEntreprise(Entreprise $entreprise): self
+    {
+        if (!$this->entreprises->contains($entreprise)) {
+            $this->entreprises[] = $entreprise;
+        }
+
+        return $this;
+    }
+
+    public function removeEntreprise(Entreprise $entreprise): self
+    {
+        if ($this->entreprises->contains($entreprise)) {
+            $this->entreprises->removeElement($entreprise);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Etudiant[]
+     */
+    public function getEtudiants(): Collection
+    {
+        return $this->etudiants;
+    }
+
+    public function addEtudiant(Etudiant $etudiant): self
+    {
+        if (!$this->etudiants->contains($etudiant)) {
+            $this->etudiants[] = $etudiant;
+        }
+
+        return $this;
+    }
+
+    public function removeEtudiant(Etudiant $etudiant): self
+    {
+        if ($this->etudiants->contains($etudiant)) {
+            $this->etudiants->removeElement($etudiant);
+        }
 
         return $this;
     }

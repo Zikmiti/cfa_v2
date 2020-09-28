@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EntrepriseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -53,6 +55,21 @@ class Entreprise
     /////////////////////////////////////////////////
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $adresse_exec;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    private $cp_exec;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    private $commune_exec;
+
+    /**
      * Adresse physique du siège de l'entreprise
      * @ORM\Column(type="string", length=255, nullable=false)
      */
@@ -60,7 +77,7 @@ class Entreprise
 
     /**
      * Code postal du siège de l'entreprise
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $cp_siege;
 
@@ -104,6 +121,22 @@ class Entreprise
      */
     private $nb_salaries;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Etudiant::class, mappedBy="entreprises")
+     */
+    private $etudiants;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Tuteur::class, mappedBy="entreprises")
+     */
+    private $tuteurs;
+
+    public function __construct()
+    {
+        $this->etudiants = new ArrayCollection();
+        $this->tuteurs = new ArrayCollection();
+    }
+
     /////////////////////////////////////////////////
     //              GETTERS & SETTERS              //
     /////////////////////////////////////////////////
@@ -125,20 +158,20 @@ class Entreprise
     public function getCodeNaf(): ?string { return $this->code_naf; }
     public function setCodeNaf(string $code_naf): self { $this->code_naf = $code_naf; return $this; }
 
-    public function getAdresseExecution(): ?string { return $this->adresse_execution; }
-    public function setAdresseExecution(string $adresse_execution): self { $this->adresse_execution = $adresse_execution; return $this; }
+    public function getAdresseExec(): ?string { return $this->adresse_exec; }
+    public function setAdresseExec(string $adresse_exec): self { $this->adresse_exec = $adresse_exec; return $this; }
 
-    public function getCpExecution(): ?int { return $this->cp_execution; }
-    public function setCpExecution(int $cp_execution): self { $this->cp_execution = $cp_execution; return $this; }
+    public function getCpExec(): ?string { return $this->cp_exec; }
+    public function setCpExec(?string $cp_exec): self { $this->cp_exec = $cp_exec; return $this; }
 
-    public function getCommuneExecution(): ?string { return $this->commune_execution; }
-    public function setCommuneExecution(string $commune_execution): self { $this->commune_execution = $commune_execution; return $this; }
+    public function getCommuneExec(): ?string { return $this->commune_exec; }
+    public function setCommuneExec(?string $commune_exec): self { $this->commune_exec = $commune_exec; return $this; }
 
     public function getAdresseSiege(): ?string { return $this->adresse_siege; }
     public function setAdresseSiege(string $adresse_siege): self { $this->adresse_siege = $adresse_siege; return $this; }
 
-    public function getCpSiege(): ?int { return $this->cp_siege; }
-    public function setCpSiege(int $cp_siege): self { $this->cp_siege = $cp_siege; return $this; }
+    public function getCpSiege(): ?string { return $this->cp_siege; }
+    public function setCpSiege(string $cp_siege): self { $this->cp_siege = $cp_siege; return $this; }
 
     public function getCommuneSiege(): ?string { return $this->commune_siege; }
     public function setCommuneSiege(string $commune_siege): self { $this->commune_siege = $commune_siege; return $this; }
@@ -157,5 +190,60 @@ class Entreprise
 
     public function getNbSalaries(): ?int { return $this->nb_salaries; }
     public function setNbSalaries(int $nb_salaries): self { $this->nb_salaries = $nb_salaries; return $this; }
+
+    /**
+     * @return Collection|Etudiant[]
+     */
+    public function getEtudiants(): Collection
+    {
+        return $this->etudiants;
+    }
+
+    public function addEtudiant(Etudiant $etudiant): self
+    {
+        if (!$this->etudiants->contains($etudiant)) {
+            $this->etudiants[] = $etudiant;
+            $etudiant->addEntreprise($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEtudiant(Etudiant $etudiant): self
+    {
+        if ($this->etudiants->contains($etudiant)) {
+            $this->etudiants->removeElement($etudiant);
+            $etudiant->removeEntreprise($this);
+        }
+        return $this;
+    }
+
+    /**
+     * @return Collection|Tuteur[]
+     */
+    public function getTuteurs(): Collection
+    {
+        return $this->tuteurs;
+    }
+
+    public function addTuteur(Tuteur $tuteur): self
+    {
+        if (!$this->tuteurs->contains($tuteur)) {
+            $this->tuteurs[] = $tuteur;
+            $tuteur->addEntreprise($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTuteur(Tuteur $tuteur): self
+    {
+        if ($this->tuteurs->contains($tuteur)) {
+            $this->tuteurs->removeElement($tuteur);
+            $tuteur->removeEntreprise($this);
+        }
+
+        return $this;
+    }
 
 }
