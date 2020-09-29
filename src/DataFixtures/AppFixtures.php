@@ -6,6 +6,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Etudiant;
 use App\Entity\Entreprise;
+use App\Entity\Tuteur;
 use Faker;
 
 class AppFixtures extends Fixture
@@ -14,7 +15,11 @@ class AppFixtures extends Fixture
     {
         $faker = Faker\Factory::create('fr_FR');
 
+        $tEntreprises = array();
+        $tmpEntreprises = array();
+
         $tEtudiants = array();
+        $tmpEtudiants = array();
 
         $tSexe = array('H','F'); //2
         $tNationalite = array('FRANÇAISE','VANUATAISE'); //2
@@ -51,6 +56,7 @@ class AppFixtures extends Fixture
             'Société en participation','Groupement d’intérêt économique','Société anonyme','Société par actions simplifiée',
             'Société en nom collectif'); //7
 
+
         /////////////////////////////////
         //          ETUDIANTS          //
         /////////////////////////////////
@@ -63,6 +69,8 @@ class AppFixtures extends Fixture
             $strDdn = ''.random_int(1,2).''.random_int(0,9).'/0'.random_int(1,9).'/'.(2020-$age);
             $ddn = \DateTime::createFromFormat("d/m/Y",$strDdn);
             $anneePrec = $tAnneePrec[random_int(0,4)];
+
+            $entrepriseNull = new Entreprise();
 
             $etudiant = new Etudiant();
 
@@ -105,6 +113,8 @@ class AppFixtures extends Fixture
             $manager->persist($etudiant);
         }
 
+        $tmpEtudiants = $tEtudiants;
+
         /////////////////////////////////
         //         ENTREPRISES         //
         /////////////////////////////////
@@ -116,8 +126,7 @@ class AppFixtures extends Fixture
             $naf = '0'.random_int(1,9).random_int(1,9).random_int(1,9).'Z';
             $tel = ''.random_int(4,9).''.random_int(0,9).'.'.random_int(0,9).''.random_int(0,9).'.'.random_int(0,9).''.random_int(0,9);
             $statut = $tStatut[random_int(0,6)];
-
-            $nbEtudiants = random_int(0,1);
+            $nbEtudiants = random_int(0,2);
 
             $entreprise = new Entreprise();
 
@@ -138,17 +147,70 @@ class AppFixtures extends Fixture
             $entreprise->setStatut($statut);
             $entreprise->setNbSalaries(random_int(1,200));
 
-           if($nbEtudiants > 0 && count($tEtudiants) > 0) {
-                $size = count($tEtudiants);
-                $indexEtudiant = random_int(0,$size-1);
-                if($tEtudiants[$indexEtudiant] != null) {
-                    $etudiantTmp = $tEtudiants[$indexEtudiant];
+            if($nbEtudiants > 0) {
+                for($nb = 1; $nb < $nbEtudiants; $nb++) {
+                    $size = count($tmpEtudiants);
+                    $index = random_int(0,$size-1);
+                    while($tmpEtudiants[$index] == null) { $index = random_int(0,$size-1); }
+                    $etudiantTmp = $tmpEtudiants[$index];
                     $entreprise->addEtudiant($etudiantTmp);
-                    array_splice($tEtudiants, 0, $indexEtudiant, null);
+                    $tEtudiants[$index] = $etudiantTmp;
+                    array_splice($tmpEtudiants, $index, 1, null);
                 }
             }
 
+            array_push($tEntreprises,$entreprise);
+
             $manager->persist($entreprise);
+        }
+
+        $tmpEntreprises = $tEntreprises;
+        $tmpEtudiants = $tEtudiants;
+
+        /////////////////////////////////
+        //           TUTEURS           //
+        /////////////////////////////////
+
+        for($k = 0; $k <= 80; $k++) {
+            $company = $faker->company;
+            $ridet = '0 '.random_int(1,9).random_int(1,9).random_int(1,9).' '.random_int(1,9).random_int(1,9).random_int(1,9).'.'.'00'.random_int(1,3);
+            $cafat = $faker->randomNumber(6,false);
+            $naf = '0'.random_int(1,9).random_int(1,9).random_int(1,9).'Z';
+            $tel = ''.random_int(4,9).''.random_int(0,9).'.'.random_int(0,9).''.random_int(0,9).'.'.random_int(0,9).''.random_int(0,9);
+            $statut = $tStatut[random_int(0,6)];
+            $dateHabilitation = $faker->dateTime($max = 'now', $timezone = null);
+            $dateDiplome = $faker->dateTime($max = 'now', $timezone = null);
+            $dateTutorat = $faker->dateTime($max = 'now', $timezone = null);
+            $tuteur = new Tuteur();
+
+            $tuteur->setNom($faker->lastName);
+            $tuteur->setPrenom($faker->firstName);
+            $tuteur->setFonctionOccupe($faker->jobTitle);
+            $tuteur->setAnneeExperience(10);
+            $tuteur->setDiplomeObtenu($tDiplome[random_int(0,23)]);
+            $tuteur->setDiplomeMax($tDiplome[random_int(0,23)]);
+            $tuteur->setTelephone($tel);
+            $tuteur->setEmail($faker->freeEmail);
+            $tuteur->setDateHabilitation($dateHabilitation);
+            $tuteur->setDateDiplome($dateDiplome);
+            $tuteur->setDateEnvoiEmailTutorat($dateTutorat);
+
+            $tEtudiantLength = count($tEtudiants);
+            $iTEtudiant = random_int(0,$tEtudiantLength-1);
+            while($tEtudiants[$iTEtudiant] == null) { $iTEtudiant = random_int(0,$tEtudiantLength-1); }
+
+            $tmp_etudiant = $tEtudiants[$iTEtudiant];
+            $tuteur->addEtudiant($tmp_etudiant);
+            $tmp_entreprise = $tmp_etudiant->getEntreprises();
+            array_splice($tmpEtudiants, $iTEtudiant, 1, null);
+
+            if(count($tmp_entreprise) > 0) {
+                $tuteur->addEntreprise($tmp_entreprise[0]);
+                $key = array_search($tmp_entreprise[0], $tmpEntreprises);
+                array_splice($tmpEntreprises, $key, 1, null);
+            }
+
+            $manager->persist($tuteur);
         }
 
         $manager->flush();
