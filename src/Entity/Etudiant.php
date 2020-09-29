@@ -306,106 +306,340 @@ class Etudiant
     //              GETTERS & SETTERS              //
     /////////////////////////////////////////////////
 
-    public function getId(): ?int { return $this->id; }
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
-    public function getNom(): ?string { return $this->nom; }
-    public function setNom(string $nom): self { $this->nom = $nom; return $this; }
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+        return $this;
+    }
 
-    public function getPrenom(): ?string { return $this->prenom; }
-    public function setPrenom(string $prenom): self { $this->prenom = $prenom; return $this; }
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+        return $this;
+    }
 
-    public function getSexe(): ?string { return $this->sexe; }
-    public function setSexe(string $sexe): self { $this->sexe = $sexe; return $this; }
+    public function getSexe(): ?string
+    {
+        return $this->sexe;
+    }
+    public function setSexe(string $sexe): self
+    {
+        $this->sexe = $sexe;
+        return $this;
+    }
 
-    public function getAge(): ?int { return $this->age; }
-    public function setAge(int $age): self { $this->age = $age; return $this; }
+    public function getAge(): ?int
+    {
+        return $this->age;
+    }
+    public function setAge(int $age): self
+    {
+        $this->age = $age;
+        return $this;
+    }
 
-    public function getDateNaiss(): ?\DateTime { return $this->date_naiss; }
-    public function setDateNaiss(\DateTime $date_naiss): self { $this->date_naiss = $date_naiss; return $this; }
+    public function getDateNaiss(): ?\DateTime
+    {
+        return $this->date_naiss;
+    }
+    public function setDateNaiss(\DateTime $date_naiss): self
+    {
+        $this->date_naiss = $date_naiss;
+        return $this;
+    }
 
-    public function getLieuNaiss(): ?string { return $this->lieu_naiss; }
-    public function setLieuNaiss(string $lieu_naiss): self { $this->lieu_naiss = $lieu_naiss; return $this; }
+    public function getLieuNaiss(): ?string
+    {
+        return $this->lieu_naiss;
+    }
+    public function setLieuNaiss(string $lieu_naiss): self
+    {
+        $this->lieu_naiss = $lieu_naiss;
+        return $this;
+    }
 
-    public function getNationalite(): ?string { return $this->nationalite; }
-    public function setNationalite(string $nationalite): self { $this->nationalite = $nationalite; return $this; }
+    public function getNationalite(): ?string
+    {
+        return $this->nationalite;
+    }
+    public function setNationalite(string $nationalite): self
+    {
+        $this->nationalite = $nationalite;
+        return $this;
+    }
 
-    public function getNumCafat(): ?string { return $this->num_cafat; }
-    public function setNumCafat(string $num_cafat): self { $this->num_cafat = $num_cafat; return $this; }
+    public function getNumCafat(): ?string
+    {
+        return $this->num_cafat;
+    }
+    public function setNumCafat(string $num_cafat): self
+    {
+        $this->num_cafat = $num_cafat;
+        return $this;
+    }
 
-    public function getAdresse(): ?string { return $this->adresse; }
-    public function setAdresse(string $adresse): self { $this->adresse = $adresse; return $this; }
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+    public function setAdresse(string $adresse): self
+    {
+        $this->adresse = $adresse;
+        return $this;
+    }
 
-    public function getBp(): ?string { return $this->bp; }
-    public function setBp(string $bp): self { $this->bp = $bp; return $this; }
+    public function getBp(): ?string
+    {
+        return $this->bp;
+    }
+    public function setBp(string $bp): self
+    {
+        $this->bp = $bp;
+        return $this;
+    }
 
-    public function getCp(): ?string { return $this->cp; }
-    public function setCp(string $cp): self { $this->cp = $cp; return $this; }
+    public function getCp(): ?string
+    {
+        return $this->cp;
+    }
+    public function setCp(string $cp): self
+    {
+        $this->cp = $cp;
+        return $this;
+    }
 
-    public function getCommune(): ?string { return $this->commune; }
-    public function setCommune(string $commune): self { $this->commune = $commune; return $this; }
+    public function getCommune(): ?string
+    {
+        return $this->commune;
+    }
+    public function setCommune(string $commune): self
+    {
+        $this->commune = $commune;
+        return $this;
+    }
 
-    public function getDroitImg(): ?bool { return $this->droit_img; }
-    public function setDroitImg(bool $droit_img): self { $this->droit_img = $droit_img; return $this; }
+    public function getDroitImg(): ?bool
+    {
+        return $this->droit_img;
+    }
+    public function setDroitImg(bool $droit_img): self
+    {
+        $this->droit_img = $droit_img;
+        return $this;
+    }
 
-    public function getTelephone(): ?string { return $this->telephone; }
-    public function setTelephone(string $telephone): self { $this->telephone = $telephone; return $this; }
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+    public function setTelephone(string $telephone): self
+    {
+        $this->telephone = $telephone;
+        return $this;
+    }
 
-    public function getEmail(): ?string { return $this->email; }
-    public function setEmail(string $email): self { $this->email = $email; return $this; }
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+        return $this;
+    }
 
-    public function getAnneePrec(): ?string { return $this->annee_prec; }
-    public function setAnneePrec(string $annee_prec): self { $this->annee_prec = $annee_prec; return $this; }
+    public function getAnneePrec(): ?string
+    {
+        return $this->annee_prec;
+    }
+    public function setAnneePrec(string $annee_prec): self
+    {
+        $this->annee_prec = $annee_prec;
+        return $this;
+    }
 
-    public function getDernierEmploi(): ?string { return $this->dernier_emploi; }
-    public function setDernierEmploi(string $dernier_emploi): self { $this->dernier_emploi = $dernier_emploi; return $this; }
+    public function getDernierEmploi(): ?string
+    {
+        return $this->dernier_emploi;
+    }
+    public function setDernierEmploi(string $dernier_emploi): self
+    {
+        $this->dernier_emploi = $dernier_emploi;
+        return $this;
+    }
 
-    public function getEtablissement(): ?string { return $this->etablissement; }
-    public function setEtablissement(string $etablissement): self { $this->etablissement = $etablissement; return $this; }
+    public function getEtablissement(): ?string
+    {
+        return $this->etablissement;
+    }
+    public function setEtablissement(string $etablissement): self
+    {
+        $this->etablissement = $etablissement;
+        return $this;
+    }
 
-    public function getHandicap(): ?bool { return $this->handicap; }
-    public function setHandicap(bool $handicap): self { $this->handicap = $handicap; return $this; }
+    public function getHandicap(): ?bool
+    {
+        return $this->handicap;
+    }
+    public function setHandicap(bool $handicap): self
+    {
+        $this->handicap = $handicap;
+        return $this;
+    }
 
-    public function getTypeFormation(): ?string { return $this->type_formation; }
-    public function setTypeFormation(string $type_formation): self { $this->type_formation = $type_formation; return $this; }
+    public function getTypeFormation(): ?string
+    {
+        return $this->type_formation;
+    }
+    public function setTypeFormation(string $type_formation): self
+    {
+        $this->type_formation = $type_formation;
+        return $this;
+    }
 
-    public function getDernierDiplome(): ?string { return $this->dernier_diplome; }
-    public function setDernierDiplome(string $dernier_diplome): self { $this->dernier_diplome = $dernier_diplome; return $this; }
+    public function getDernierDiplome(): ?string
+    {
+        return $this->dernier_diplome;
+    }
+    public function setDernierDiplome(string $dernier_diplome): self
+    {
+        $this->dernier_diplome = $dernier_diplome;
+        return $this;
+    }
 
-    public function getDiplomeEnCours(): ?string { return $this->diplome_en_cours; }
-    public function setDiplomeEnCours(string $diplome_en_cours): self { $this->diplome_en_cours = $diplome_en_cours; return $this; }
+    public function getDiplomeEnCours(): ?string
+    {
+        return $this->diplome_en_cours;
+    }
+    public function setDiplomeEnCours(string $diplome_en_cours): self
+    {
+        $this->diplome_en_cours = $diplome_en_cours;
+        return $this;
+    }
 
-    public function getAnneeDernierDiplome(): ?string { return $this->annee_dernier_diplome; }
-    public function setAnneeDernierDiplome(string $annee_dernier_diplome): self { $this->annee_dernier_diplome = $annee_dernier_diplome; return $this; }
+    public function getAnneeDernierDiplome(): ?string
+    {
+        return $this->annee_dernier_diplome;
+    }
+    public function setAnneeDernierDiplome(string $annee_dernier_diplome): self
+    {
+        $this->annee_dernier_diplome = $annee_dernier_diplome;
+        return $this;
+    }
 
-    public function getDecuaRempli(): ?bool { return $this->decua_rempli; }
-    public function setDecuaRempli(bool $decua_rempli): self { $this->decua_rempli = $decua_rempli; return $this; }
+    public function getDecuaRempli(): ?bool
+    {
+        return $this->decua_rempli;
+    }
+    public function setDecuaRempli(bool $decua_rempli): self
+    {
+        $this->decua_rempli = $decua_rempli;
+        return $this;
+    }
 
-    public function getAdmissibilite(): ?bool { return $this->admissibilite; }
-    public function setAdmissibilite(bool $admissibilite): self { $this->admissibilite = $admissibilite; return $this; }
+    public function getAdmissibilite(): ?bool
+    {
+        return $this->admissibilite;
+    }
+    public function setAdmissibilite(bool $admissibilite): self
+    {
+        $this->admissibilite = $admissibilite;
+        return $this;
+    }
 
-    public function getConfirmEntretien(): ?string { return $this->confirm_entretien; }
-    public function setConfirmEntretien(string $confirm_entretien): self { $this->confirm_entretien = $confirm_entretien; return $this; }
+    public function getConfirmEntretien(): ?string
+    {
+        return $this->confirm_entretien;
+    }
+    public function setConfirmEntretien(string $confirm_entretien): self
+    {
+        $this->confirm_entretien = $confirm_entretien;
+        return $this;
+    }
 
-    public function getAdmisListComp(): ?string { return $this->admis_list_comp; }
-    public function setAdmisListComp(string $admis_list_comp): self { $this->admis_list_comp = $admis_list_comp; return $this; }
+    public function getAdmisListComp(): ?string
+    {
+        return $this->admis_list_comp;
+    }
+    public function setAdmisListComp(string $admis_list_comp): self
+    {
+        $this->admis_list_comp = $admis_list_comp;
+        return $this;
+    }
 
-    public function getPresenceInfoCfa(): ?bool { return $this->presence_info_cfa; }
-    public function setPresenceInfoCfa(bool $presence_info_cfa): self { $this->presence_info_cfa = $presence_info_cfa; return $this; }
+    public function getPresenceInfoCfa(): ?bool
+    {
+        return $this->presence_info_cfa;
+    }
+    public function setPresenceInfoCfa(bool $presence_info_cfa): self
+    {
+        $this->presence_info_cfa = $presence_info_cfa;
+        return $this;
+    }
 
-    public function getPresenceAtelier(): ?bool { return $this->presence_atelier; }
-    public function setPresenceAtelier(bool $presence_atelier): self { $this->presence_atelier = $presence_atelier; return $this; }
+    public function getPresenceAtelier(): ?bool
+    {
+        return $this->presence_atelier;
+    }
+    public function setPresenceAtelier(bool $presence_atelier): self
+    {
+        $this->presence_atelier = $presence_atelier;
+        return $this;
+    }
 
-    public function getPresenceJobDating(): ?bool { return $this->presence_job_dating; }
-    public function setPresenceJobDating(bool $presence_job_dating): self { $this->presence_job_dating = $presence_job_dating; return $this; }
+    public function getPresenceJobDating(): ?bool
+    {
+        return $this->presence_job_dating;
+    }
+    public function setPresenceJobDating(bool $presence_job_dating): self
+    {
+        $this->presence_job_dating = $presence_job_dating;
+        return $this;
+    }
 
-    public function getInscription(): ?string { return $this->inscription; }
-    public function setInscription(string $inscription): self { $this->inscription = $inscription; return $this; }
+    public function getInscription(): ?string
+    {
+        return $this->inscription;
+    }
+    public function setInscription(string $inscription): self
+    {
+        $this->inscription = $inscription;
+        return $this;
+    }
 
-    public function getObservations(): ?string { return $this->observations; }
-    public function setObservations(string $observations): self { $this->observations = $observations; return $this; }
+    public function getObservations(): ?string
+    {
+        return $this->observations;
+    }
+    public function setObservations(string $observations): self
+    {
+        $this->observations = $observations;
+        return $this;
+    }
 
-    public function getLicence(): ?string { return $this->licence; }
-    public function setLicence(string $licence): self { $this->licence = $licence; return $this; }
+    public function getLicence(): ?string
+    {
+        return $this->licence;
+    }
+    public function setLicence(string $licence): self
+    {
+        $this->licence = $licence;
+        return $this;
+    }
 
     /**
      * @return Collection|Entreprise[]
@@ -459,5 +693,10 @@ class Etudiant
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getNom() . " " . $this->getPrenom();
     }
 }

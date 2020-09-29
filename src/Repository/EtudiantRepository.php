@@ -19,6 +19,14 @@ class EtudiantRepository extends ServiceEntityRepository
         parent::__construct($registry, Etudiant::class);
     }
 
+    public function countAll(): int
+    {
+        return $this->createQueryBuilder('e')
+            ->select('count(e.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
     // /**
     //  * @return Etudiant[] Returns an array of Etudiant objects
     //  */

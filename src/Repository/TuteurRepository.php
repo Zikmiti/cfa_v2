@@ -19,6 +19,14 @@ class TuteurRepository extends ServiceEntityRepository
         parent::__construct($registry, Tuteur::class);
     }
 
+    public function countAll(): int
+    {
+        return $this->createQueryBuilder('e')
+            ->select('count(e.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
     // /**
     //  * @return Tuteur[] Returns an array of Tuteur objects
     //  */

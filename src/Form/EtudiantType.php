@@ -6,6 +6,12 @@ use App\Entity\Etudiant;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\RadioType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class EtudiantType extends AbstractType
 {
@@ -14,11 +20,21 @@ class EtudiantType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('sexe')
+            ->add('sexe', ChoiceType::class, [
+                'choices'  => [
+                    'H' => 'H',
+                    'F' => 'F',
+
+                ],
+            ])
             ->add('age')
             ->add('telephone')
             ->add('email')
-            ->add('date_naiss')
+            ->add('date_naiss', BirthdayType::class, [
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'input'  => 'datetime',
+            ])
             ->add('lieu_naiss')
             ->add('nationalite')
             ->add('num_cafat')
@@ -44,8 +60,7 @@ class EtudiantType extends AbstractType
             ->add('presence_atelier')
             ->add('presence_job_dating')
             ->add('inscription')
-            ->add('observations')
-        ;
+            ->add('observations');
     }
 
     public function configureOptions(OptionsResolver $resolver)
