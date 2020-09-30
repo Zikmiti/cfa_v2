@@ -1,5 +1,15 @@
 $(document).ready(function () {
 
+    $('#datatable-example').DataTable(
+        {
+        "responsive": true,
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+    });
+
+    $("#wrapper").addClass("menuDisplayed");
+
     function archiveFunction() {
         swal({
             title: "Are you sure?",
@@ -62,14 +72,6 @@ $(document).ready(function () {
 
         case "/Accueil":
             activeMenu('Accueil');
-            break;
-
-        case "/documentation":
-            activeMenu('Documentation');
-            break;
-
-        case "/formation/":
-            activeMenu('Formations');
             break;
 
         default:

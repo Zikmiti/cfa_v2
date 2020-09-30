@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.css')}}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap.min.css">
 
-		<title>CFA -
-			{% block title %}{% endblock %}
-		</title>
-		{% block stylesheets %}{% endblock %}
-		<link rel="stylesheet" href="{{asset('css/main.css')}}">
-	</head>
-	<body>
-		{# modal #}
+        <title>CFA - {% block title %}{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="{{asset('css/main.css')}}">
+
+    </head>
+    <body>
+    {# modal #}
 		<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalTitle" aria-hidden="true">
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
@@ -24,19 +26,14 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<div id="spinner">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-						<div id="PartialView"></div>
+					<div id="spinner"><div></div><div></div><div></div><div></div></div>
+					<div id="PartialView"></div>
 					</div>
 				</div>
 			</div>
 		</div>
-		{# fin modal  #}
-		<div id="wrapper" class="menuDisplayed">
+	{# fin modal  #}
+<div id="wrapper">
 			<div id="sidebar-wrapper">
 				<ul class="sidebar-nav">
 					<li id="Accueil">
@@ -44,7 +41,7 @@
 						<small>Accueil</small>
 					</li>
 					<li id="Formations">
-						<a title="Formations" class="fas fa-list-alt fa-2x" href="{{path('formation_index')}}"></a>
+						<a title="Formations" class="fas fa-list-alt fa-2x" href="#"></a>
 						<small>Formations</small>
 					</li>
 					<li id="Etudiants">
@@ -52,11 +49,11 @@
 						<small>Etudiants</small>
 					</li>
 					<li id="Entreprise">
-						<a title="Entreprise" class="fas fa-building fa-2x" href=""></a>
+						<a title="Entreprise" class="fas fa-building fa-2x" href="#"></a>
 						<small>Entreprise</small>
 					</li>
 					<li id="Tuteurs">
-						<a title="Tuteurs" class="fas fa-user-tie fa-2x" href="#"></a>
+						<a title="Tuteurs" class="fas fa-user-tie fa-2x" href="{{path('tuteur_index')}}"></a>
 						<small>Tuteurs</small>
 					</li>
 					<li id="Campagne">
@@ -80,24 +77,26 @@
 			<div id="page-content-wrapper">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-lg-12"> 
-						{% for message in app.flashes('success') %}
-							<div class="noty">
-								{{message}}
-							</div>
-						{% endfor %}
-						{% block body %}{% endblock %}
-							</div>
+						<div class="col-lg-12">
+							{% block body %}
+							{% endblock %}
 						</div>
 					</div>
 				</div>
 			</div>
-			<script src="{{asset('js/jquery/jquery-3.5.1.js')}}"></script>
-			<script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
-			<script src="{{asset('js/chart/chart.js')}}"></script>
-			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-			<script src="https://kit.fontawesome.com/6b764694ff.js"></script>
-			<script src="{{asset('js/script.js')}}"></script>
-			{% block javascripts %}{% endblock %}
-		</body>
-	</html>
+		</div>
+        <script src="{{asset('js/jquery/jquery-3.5.1.js')}}"></script>
+        <script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js "></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap.min.js"></script>
+
+		<script src="{{asset('js/chart/chart.js')}}"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script src="https://kit.fontawesome.com/6b764694ff.js"></script>
+		<script src="{{asset('js/script.js')}}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

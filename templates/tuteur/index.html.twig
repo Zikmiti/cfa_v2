@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tuteur index{% endblock %}
+
+{% block body %}
+    <h1>Tuteurs</h1>
+    <button id="ajouter" data-target="#formModal" data-toggle="modal" class="btn btn-success" onclick="OpenModal('{{ path('tuteur_new') }}')">
+        <i class="fas fa-plus"></i>
+    </button>
+       <br>
+       <br>
+      <table id="datatable-example" class="table dt-responsive custom-table nowrap">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Fonction_occupe</th>
+                    <th>Telephone</th>
+                    <th>Email</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tuteur in tuteurs %}
+                    <tr>
+                        <td>{{ tuteur.nom }}</td>
+                        <td>{{ tuteur.prenom }}</td>
+                        <td>{{ tuteur.fonctionOccupe }}</td>
+                        <td>{{ tuteur.telephone }}</td>
+                        <td>{{ tuteur.email }}</td>
+                        <td>
+                            <button data-target="#formModal" data-toggle="modal" class="btn btn-secondary " onclick="OpenModal('{{path('tuteur_show', {'id': tuteur.id})}}')">Afficher</button>
+                            <button data-target="#formModal" data-toggle="modal" class="btn btn-primary " onclick="OpenModal('{{path('tuteur_edit', {'id': tuteur.id})}}')">Modifier</button>
+                            {{ include('tuteur/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="13">aucune données</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+</div>
+
+{% endblock %}

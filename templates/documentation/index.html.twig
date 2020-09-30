@@ -30,7 +30,7 @@
 	<article>
 		<h4>Ajout d'un étudiant</h4>
 		<p>Pour ajouter un étudiant, rendez vous sur la page <a href="#">"Formations"</a> et cliquez sur le bouton "Ajouter" au-dessus de la liste des étudiants.</p>
-		<p>Si l'étudiant a déjà une entreprise d'accueil, vous devrez choisir son entreprise et son tuteur dans la liste déroulante prévue à cet effet. Pour cela, vous devez donc avoir déjà créé l'entreprise d'accueil dans l'onglet <a href="#">"Entreprises"</a> et le tuteur dans l'onglet <a href="#">"Tuteurs"</a>.</p>
+		<p>Si l'étudiant a déjà une entreprise d'accueil, vous devrez choisir son entreprise et son tuteur dans la liste déroulante prévue à cet effet. Pour cela, vous devez donc avoir déjà créé l'entreprise d'accueil dans l'onglet <a href="{{path('entreprise_index')}}">"Entreprises"</a> et le tuteur dans l'onglet <a href="{{path('tuteur_index')}}">"Tuteurs"</a>.</p>
 		<p>Si l'étudiant n'a pas d'entreprise, vous pouvez laisser ce champ vide.</p>
 	</article>
 
@@ -52,13 +52,13 @@
 
 	<article>
 		<h4>Affichage de la liste des entreprises</h4>
-		<p>Pour afficher la liste des entreprises, cliquez dans la barre de menu sur l'onglet <a href="#">"Entreprises"</a>.</p>
+		<p>Pour afficher la liste des entreprises, cliquez dans la barre de menu sur l'onglet <a href="{{path('entreprise_index')}}">"Entreprises"</a>.</p>
 		<p>Pour afficher les informations d'un entreprise en particulier, cliquez sur le nom de l'entreprise souhaitée dans la liste et une fenêtre de détails apparaîtra. Sur cette nouvelle fenêtre, un onglet "Tuteurs" et un onglet "Étudiants" vous permettront d'avoir un accès direct aux informations des tuteurs et des étudiants reliés à cette entreprise.</p>
 	</article>
 
 	<article>
 		<h4>Ajout d'une entreprise</h4>
-		<p>Pour ajouter une entreprise, rendez vous sur la page <a href="#">"Entreprises"</a> et cliquez sur le bouton "Ajouter" au-dessus de la liste des entreprises.</p>
+		<p>Pour ajouter une entreprise, rendez vous sur la page <a href="{{path('entreprise_index')}}">"Entreprises"</a> et cliquez sur le bouton "Ajouter" au-dessus de la liste des entreprises.</p>
 		<p>Pour relier cette entreprise à un étudiant ou à un tuteur, il faut aller dans l'onglet étudiant (ou l'onglet tuteur), ouvrir la fenêtre de modification de cet étudiant (ou du tuteur), et ajouter l'entreprise dans le champ  ........... prévu à cet effet.</p>
 		<p>Lors de la création d'une entreprise, les champs à remplir obligatoirement sont les suivants :
 			<ul>
@@ -91,8 +91,8 @@
 
 	<article>
 		<h4>Ajout d'un tuteur</h4>
-		<p>Pour ajouter un tuteur, rendez vous sur la page <a href="#">"Tuteurs"</a> et cliquez sur le bouton "Ajouter" au-dessus de la liste des tuteurs.</p>
-		<p>Pour ajouter un tuteur, vous devrez choisir son entreprise dans la liste déroulante prévue à cet effet. Pour cela, vous devez donc avoir déjà créé son entreprise dans l'onglet <a href="#">"Entreprises"</a></a>.</p>
+		<p>Pour ajouter un tuteur, rendez vous sur la page <a href="{{path('tuteur_index')}}">"Tuteurs"</a> et cliquez sur le bouton "Ajouter" au-dessus de la liste des tuteurs.</p>
+		<p>Pour ajouter un tuteur, vous devrez choisir son entreprise dans la liste déroulante prévue à cet effet. Pour cela, vous devez donc avoir déjà créé son entreprise dans l'onglet <a href="{{path('entreprise_index')}}">"Entreprises"</a></a>.</p>
 	</article>
 
 	<article>
