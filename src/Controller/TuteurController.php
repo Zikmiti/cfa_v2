@@ -20,18 +20,10 @@ class TuteurController extends AbstractController
     /**
      * @Route("/", name="tuteur_index", methods={"GET"})
      */
-    public function index(TuteurRepository $tuteurRepository, PaginatorInterface $paginator, Request $request): Response
+    public function index(TuteurRepository $tuteurRepository, Request $request): Response
     {
-        $query = $tuteurRepository->findAll();
-
-        $pagination = $paginator->paginate(
-            $query,
-            $request->query->getInt('page', 1),
-            18
-        );
-
         return $this->render('tuteur/index.html.twig', [
-            'tuteurs' => $pagination,
+            'tuteurs' => $tuteurRepository->findAll()
         ]);
     }
 
@@ -51,6 +43,7 @@ class TuteurController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($tuteur);
             $entityManager->flush();
+            $this->addFlash('success', 'Tuteur Ajouté !');
 
             return $this->redirectToRoute('tuteur_index');
         }
@@ -84,6 +77,7 @@ class TuteurController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Tuteur Modifié !');
 
             return $this->redirectToRoute('tuteur_index');
         }
@@ -103,6 +97,7 @@ class TuteurController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($tuteur);
             $entityManager->flush();
+            $this->addFlash('success', 'Tuteur Supprimé !');
         }
 
         return $this->redirectToRoute('tuteur_index');

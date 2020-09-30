@@ -1,81 +1,96 @@
 
 <br>
 {{ form_start(form) }}
-<div class="my-custom-class-for-errors">
-    	{{ form_errors(form) }}
-</div>
 
-<div class="row form-group">
-	<div class="col-md-10">
-		{{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'placeholder' : "Prénom"}}) }}
-	</div>
-</div>
+<div class="my-custom-class-for-errors"> {{ form_errors(form) }} </div>
 
-<div class="row form-group">
-	<div class="col-md-10">
-		{{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder' : "Nom"}}) }}
-	</div>
-</div>
+<div class="col-10 mx-auto">
 
-<div class="row form-group">
-	<div class="col-md-10">
-		{{ form_widget(form.fonction_occupe, {'attr': {'class': 'form-control', 'placeholder' : "Fonction occupée"}}) }}
-	</div>
-</div>
+    <hr>
 
-<div class="row form-group">
-	<div class="col-md-10">
-		{{ form_widget(form.annee_experience, {'attr': {'class': 'form-control', 'placeholder' : "Années d'expérience"}}) }}
-	</div>
-</div>
-
-<div class="row form-group">
-	<div class="col-md-10">
-		{{ form_widget(form.diplome_max, {'attr': {'class': 'form-control', 'placeholder' : "Diplôme le plus élevé"}}) }}
-	</div>
-</div>
-
-<div class="row form-group">
-	<div class="col-md-10">
-        {{ form_widget(form.date_diplome, {'attr': {'class': 'form-control', 'placeholder' : "Date d'obtention du diplôme"}}) }}
+    <div class="row form-group">
+        <div class="col-6">
+            Prénom
+            {{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'placeholder' : "Prénom"}}) }}
+        </div>
+        <div class="col-6">
+            Nom
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder' : "Nom"}}) }}
+        </div>
     </div>
-</div>
 
-<div class="row form-group">
-	<div class="col-md-10">
-		{{ form_widget(form.telephone, {'attr': {'class': 'form-control', 'placeholder' : "Téléphone"}}) }}
-	</div>
-</div>
+    <div class="row form-group">
+        <div class="col-6">
+            Téléphone
+            {{ form_widget(form.telephone, {'attr': {'class': 'form-control', 'placeholder' : "Téléphone"}}) }}
+        </div>
+        <div class="col-6">
+            Email
+            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder' : "Email"}}) }}
+        </div>
+    </div>
 
-<div class="row form-group">
-	<div class="col-md-10">
-		{{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder' : "Email"}}) }}
-	</div>
-</div>
+    <hr>
 
-<div class="row form-group">
-	<div class="col-md-10">
-		{{ form_widget(form.date_habilitation, {'attr': {'class': 'form-control', 'placeholder' : "Date d'habilitation"}}) }}
-	</div>
-</div>
+    <div class="row form-group">
+        <div class="col-8">
+            Fonction occupée
+            {{ form_widget(form.fonction_occupe, {'attr': {'class': 'form-control', 'placeholder' : "Fonction occupée"}}) }}
+        </div>
+        <div class="col-4">
+            Années d'expérience
+            {{ form_widget(form.annee_experience, {'attr': {'class': 'form-control', 'placeholder' : "Années d'expérience"}}) }}
+        </div>
+    </div>
 
-<div class="row form-group">
-	<div class="col-md-10">
-		{{ form_widget(form.date_envoi_email_tutorat, {'attr': {'class': 'form-control', 'placeholder' : "Date d'envoi du mail pour le tutorat"}}) }}
-	</div>
-</div>
+    <hr>
 
-<div class="row form-group">
-	<div class="col-md-10">
-		{{ form_widget(form.entreprises, {'attr': {'class': 'form-control', 'placeholder' : "Entreprise"}}) }}
-	</div>
-</div>
+    <div class="row form-group">
+        <div class="col-8">
+            Diplôme
+            {{ form_widget(form.diplome_max, {'attr': {'class': 'form-control', 'placeholder' : "Diplôme"}}) }}
+        </div>
+        <div class="col-4">
+            Date d'obtention du diplôme
+            {{ form_widget(form.date_diplome, {'attr': {'class': 'form-control', 'placeholder' : "Date d'obtention du diplôme"}}) }}
+        </div>
+    </div>
 
-<div class="row form-group">
-	<div class="col-md-10">
-		{{ form_widget(form.etudiants, {'attr': {'class': 'form-control', 'placeholder' : "Étudiant"}}) }}
-	</div>
-</div>
+    <hr>
 
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="row form-group">
+        <div class="col-6">
+            Date d'habilitation
+            {{ form_widget(form.date_habilitation, {'attr': {'class': 'form-control', 'placeholder' : "Date d'habilitation"}}) }}
+        </div>
+        <div class="col-6">
+            Date d'envoi de l'email au tutorat
+            {{ form_widget(form.date_envoi_email_tutorat, {'attr': {'class': 'form-control', 'placeholder' : "Date d'envoi du mail pour le tutorat"}}) }}
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row form-group">
+        <div class="col-6">
+            Entreprise(s)
+            {{ form_widget(form.entreprises, {'attr': {'class': 'form-control', 'placeholder' : "Entreprise"}}) }}
+        </div>
+        <div class="col-6">
+            Étudiant(s)
+            {{ form_widget(form.etudiants, {'attr': {'class': 'form-control', 'placeholder' : "Étudiant"}}) }}
+        </div>
+    </div>
+
+    <hr>
+
+    <br>
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-primary">
+            {{ button_label|default('Enregistrer') }}
+        </button>
+    </div>
+
+</div> <br>
+
 {{ form_end(form) }}

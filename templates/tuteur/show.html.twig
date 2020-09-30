@@ -1,10 +1,16 @@
 {% block body %}
-    <h1>Tuteur</h1>
 
-    <table class="table table-borderless">
+<div class="col-8 mx-auto">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th colspan="2"><h2>Tuteur</h2></th>
+            </tr>
+        <thead>
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>ID</th>
                 <td>{{ tuteur.id }}</td>
             </tr>
             <tr>
@@ -12,27 +18,23 @@
                 <td>{{ tuteur.nom }}</td>
             </tr>
             <tr>
-                <th>Prenom</th>
+                <th>Prénom</th>
                 <td>{{ tuteur.prenom }}</td>
             </tr>
             <tr>
-                <th>Fonction_occupe</th>
+                <th>Fonction occupée</th>
                 <td>{{ tuteur.fonctionOccupe }}</td>
             </tr>
             <tr>
-                <th>Annee_experience</th>
+                <th>Années d'experience</th>
                 <td>{{ tuteur.anneeExperience }}</td>
             </tr>
             <tr>
-                <th>Diplome_obtenu</th>
-                <td>{{ tuteur.diplomeObtenu }}</td>
-            </tr>
-            <tr>
-                <th>Diplome_max</th>
+                <th>Diplôme</th>
                 <td>{{ tuteur.diplomeMax }}</td>
             </tr>
             <tr>
-                <th>Telephone</th>
+                <th>Télephone</th>
                 <td>{{ tuteur.telephone }}</td>
             </tr>
             <tr>
@@ -40,18 +42,20 @@
                 <td>{{ tuteur.email }}</td>
             </tr>
             <tr>
-                <th>Date_habilitation</th>
+                <th>Date d'habilitation</th>
                 <td>{{ tuteur.dateHabilitation ? tuteur.dateHabilitation|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Date_diplome</th>
+                <th>Date d'obtention du diplôme</th>
                 <td>{{ tuteur.dateDiplome ? tuteur.dateDiplome|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Date_envoi_email_tutorat</th>
+                <th>Date d'envoi de l'email au tutorat</th>
                 <td>{{ tuteur.dateEnvoiEmailTutorat ? tuteur.dateEnvoiEmailTutorat|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
     </table>
+
+</div><br>
 
 {% endblock %}
