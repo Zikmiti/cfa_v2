@@ -1,0 +1,57 @@
+{% block body %}
+    <h1>Tuteur</h1>
+
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tuteur.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ tuteur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ tuteur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Fonction_occupe</th>
+                <td>{{ tuteur.fonctionOccupe }}</td>
+            </tr>
+            <tr>
+                <th>Annee_experience</th>
+                <td>{{ tuteur.anneeExperience }}</td>
+            </tr>
+            <tr>
+                <th>Diplome_obtenu</th>
+                <td>{{ tuteur.diplomeObtenu }}</td>
+            </tr>
+            <tr>
+                <th>Diplome_max</th>
+                <td>{{ tuteur.diplomeMax }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ tuteur.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ tuteur.email }}</td>
+            </tr>
+            <tr>
+                <th>Date_habilitation</th>
+                <td>{{ tuteur.dateHabilitation ? tuteur.dateHabilitation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_diplome</th>
+                <td>{{ tuteur.dateDiplome ? tuteur.dateDiplome|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_envoi_email_tutorat</th>
+                <td>{{ tuteur.dateEnvoiEmailTutorat ? tuteur.dateEnvoiEmailTutorat|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

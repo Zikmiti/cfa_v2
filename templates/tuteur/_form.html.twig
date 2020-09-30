@@ -1,0 +1,63 @@
+
+<br>
+{{ form_start(form) }}
+<div class="my-custom-class-for-errors">
+	{{ form_errors(form) }}
+</div>
+
+<div class="row form-group">
+	<div class="col-md-3">
+		{{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'placeholder' : "Prénom"}}) }}
+	</div>
+	<div class="col-md-3 ">
+		{{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder' : "Nom"}}) }}
+	</div>
+</div>
+
+<div class="row form-group">
+	<div class="col-md-3 ">
+		{{ form_widget(form.fonction_occupe, {'attr': {'class': 'form-control', 'placeholder' : "Fonction occupée"}}) }}
+	</div>
+	<div class="col-md-3 ">
+		{{ form_widget(form.annee_experience, {'attr': {'class': 'form-control', 'placeholder' : "Années d'expérience"}}) }}
+	</div>
+</div>
+
+<div class="row form-group">
+	<div class="col-md-3 ">
+		{{ form_widget(form.diplome_max, {'attr': {'class': 'form-control', 'placeholder' : "Diplôme le plus élevé"}}) }}
+	</div>
+	<div class="col-md-3 ">
+        {{ form_widget(form.date_diplome, {'attr': {'class': 'form-control', 'placeholder' : "Date d'obtention du diplôme"}}) }}
+    </div>
+</div>
+
+<div class="row form-group">
+	<div class="col-md-3 ">
+		{{ form_widget(form.telephone, {'attr': {'class': 'form-control', 'placeholder' : "Téléphone"}}) }}
+	</div>
+	<div class="col-md-3 ">
+		{{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder' : "Email"}}) }}
+	</div>
+</div>
+
+<div class="row form-group">
+	<div class="col-md-3 ">
+		{{ form_widget(form.date_habilitation, {'attr': {'class': 'form-control', 'placeholder' : "Date d'habilitation"}}) }}
+	</div>
+	<div class="col-md-3 ">
+		{{ form_widget(form.date_envoi_email_tutorat, {'attr': {'class': 'form-control', 'placeholder' : "Date d'envoi du mail pour le tutorat"}}) }}
+	</div>
+</div>
+
+<div class="row form-group">
+	<div class="col-md-3 ">
+		{{ form_widget(form.entreprises, {'attr': {'class': 'form-control', 'placeholder' : "Entreprise"}}) }}
+	</div>
+	<div class="col-md-3 ">
+		{{ form_widget(form.etudiants, {'attr': {'class': 'form-control', 'placeholder' : "Étudiant"}}) }}
+	</div>
+</div>
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
