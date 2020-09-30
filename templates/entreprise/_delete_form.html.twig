@@ -1,0 +1,7 @@
+<form method="post" class="d-inline" action="{{ path('entreprise_delete', {'id': entreprise.id}) }}" onsubmit="return confirm('Confirmer la suppression ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ entreprise.id) }}">
+    <button class="btn btn-danger text-white">
+        <i class="fas fa-trash-alt"></i>
+    </button>
+</form>

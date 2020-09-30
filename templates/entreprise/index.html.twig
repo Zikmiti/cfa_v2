@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entreprise index{% endblock %}
+
+{% block body %}
+    <h1>Entreprises</h1>
+
+    <button id="ajouter" data-target="#formModal" data-toggle="modal" class="btn btn-success" onclick="OpenModal('{{ path('entreprise_new') }}')">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <br><br>
+
+    <table id="datatable-example" class="table dt-responsive custom-table nowrap">
+        <thead>
+            <tr>
+                <th>Enseigne</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Adresse</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entreprise in entreprises %}
+            <tr>
+                <td>{{ entreprise.enseigne }}</td>
+                <td>{{ entreprise.telephone }}</td>
+                <td>{{ entreprise.email }}</td>
+                <td>{{ entreprise.adresseExec ~ ', ' ~ entreprise.cpExec ~ ' ' ~ entreprise.communeExec | upper }}</td>
+                <td>
+                    <button data-target="#formModal" data-toggle="modal" class="btn btn-warning text-white" onclick="OpenModal('{{path('entreprise_show', {'id': entreprise.id})}}')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <button data-target="#formModal" data-toggle="modal" class="btn btn-primary " onclick="OpenModal('{{path('entreprise_edit', {'id': entreprise.id})}}')">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    {{ include('entreprise/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

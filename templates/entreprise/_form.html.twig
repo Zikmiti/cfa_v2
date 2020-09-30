@@ -1,0 +1,111 @@
+<br>
+{{ form_start(form) }}
+
+<div class="my-custom-class-for-errors"> {{ form_errors(form) }} </div>
+
+<div class="col-10 mx-auto">
+
+    <hr>
+
+    <div class="row form-group">
+        <div class="col-3">
+            Enseigne
+            {{ form_widget(form.enseigne, {'attr': {'class': 'form-control', 'placeholder' : "Enseigne"}}) }}
+        </div>
+        <div class="col-3">
+            Raison sociale
+            {{ form_widget(form.raison_sociale, {'attr': {'class': 'form-control', 'placeholder' : "Raison sociale"}}) }}
+        </div>
+        <div class="col-3">
+            Téléphone
+            {{ form_widget(form.telephone, {'attr': {'class': 'form-control', 'placeholder' : "Téléphone"}}) }}
+        </div>
+        <div class="col-3">
+            Email
+            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder' : "Email"}}) }}
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row form-group">
+        <div class="col-4">
+            Adresse du lieu d'exécution
+            {{ form_widget(form.adresse_exec, {'attr': {'class': 'form-control', 'placeholder' : "Adresse du lieu d'exécution"}}) }}
+        </div>
+        <div class="col-4">
+            Code postal du lieu d'exécution
+            {{ form_widget(form.cp_exec, {'attr': {'class': 'form-control', 'placeholder' : "Code postal du lieu d'exécution"}}) }}
+        </div>
+        <div class="col-4">
+            Commune du lieu d'exécution
+            {{ form_widget(form.commune_exec, {'attr': {'class': 'form-control', 'placeholder' : "Commune du lieu d'exécution"}}) }}
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-4">
+            Adresse du siège
+            {{ form_widget(form.adresse_siege, {'attr': {'class': 'form-control', 'placeholder' : "Adresse du siège"}}) }}
+        </div>
+        <div class="col-4">
+            Code postal du siège
+            {{ form_widget(form.cp_siege, {'attr': {'class': 'form-control', 'placeholder' : "Code postal du siège"}}) }}
+        </div>
+        <div class="col-4">
+            Commune du siège
+            {{ form_widget(form.commune_siege, {'attr': {'class': 'form-control', 'placeholder' : "Commune du siège"}}) }}
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row form-group">
+        <div class="col-4">
+            N° RIDET
+            {{ form_widget(form.ridet, {'attr': {'class': 'form-control', 'placeholder' : "N° RIDET"}}) }}
+        </div>
+        <div class="col-4">
+            N° CAFAT
+            {{ form_widget(form.num_cafat, {'attr': {'class': 'form-control', 'placeholder' : "N° CAFAT"}}) }}
+        </div>
+        <div class="col-4">
+            CODE NAF
+            {{ form_widget(form.code_naf, {'attr': {'class': 'form-control', 'placeholder' : "CODE NAF"}}) }}
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-4">
+            Convention collective
+            {{ form_widget(form.convention_collective, {'attr': {'class': 'form-control', 'placeholder' : "Convention collective"}}) }}
+        </div>
+        <div class="col-4">
+            Statut juridique
+            {{ form_widget(form.statut, {'attr': {'class': 'form-control', 'placeholder' : "Statut juridique"}}) }}
+        </div>
+        <div class="col-4">
+            Nombre de salariés
+            {{ form_widget(form.nb_salaries, {'attr': {'class': 'form-control', 'placeholder' : "Nombre de salariés"}}) }}
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row form-group">
+        <div class="col-6">
+            Étudiant(s)
+            {{ form_widget(form.etudiants, {'attr': {'class': 'form-control', 'placeholder' : "Étudiants"}}) }}
+        </div>
+        <div class="col-6">
+            Tuteur(s)
+            {{ form_widget(form.tuteurs, {'attr': {'class': 'form-control', 'placeholder' : "Tuteurs"}}) }}
+        </div>
+    </div>
+
+    <hr>
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+
+{{ form_end(form) }}

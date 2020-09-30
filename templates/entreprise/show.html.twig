@@ -1,0 +1,80 @@
+{% block body %}
+
+<div class="col-10 mx-auto">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th colspan="5"><h2>Entreprise</h2></th>
+            </tr>
+        <thead>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ entreprise.id }}</td>
+                <td class="px-5">-</td>
+                <th>Enseigne</th>
+                <td>{{ entreprise.enseigne }}</td>
+            </tr>
+            <tr>
+                <th>Raison sociale</th>
+                <td>{{ entreprise.raisonSociale }}</td>
+                <td class="px-5">-</td>
+                <th>N° RIDET</th>
+                <td>{{ entreprise.ridet }}</td>
+            </tr>
+            <tr>
+                <th>N° CAFAT</th>
+                <td>{{ entreprise.numCafat }}</td>
+                <td class="px-5">-</td>
+                <th>Code_naf</th>
+                <td>{{ entreprise.codeNaf }}</td>
+            </tr>
+            <tr>
+                <th>Adresse du lieu d'exécution</th>
+                <td>{{ entreprise.adresseExec }}</td>
+                <td class="px-5">-</td>
+                <th>Code postal du lieu d'exécution</th>
+                <td>{{ entreprise.cpExec }}</td>
+            </tr>
+            <tr>
+                <th>Commune du lieu d'exécution</th>
+                <td>{{ entreprise.communeExec }}</td>
+                <td class="px-5">-</td>
+                <th>Adresse du siège</th>
+                <td>{{ entreprise.adresseSiege }}</td>
+            </tr>
+            <tr>
+                <th>Code postal du siège</th>
+                <td>{{ entreprise.cpSiege }}</td>
+                <td class="px-5">-</td>
+                <th>Commune du siège</th>
+                <td>{{ entreprise.communeSiege }}</td>
+            </tr>
+            <tr>
+                <th>Télephone</th>
+                <td>{{ entreprise.telephone }}</td>
+                <td class="px-5">-</td>
+                <th>Email</th>
+                <td>{{ entreprise.email }}</td>
+            </tr>
+            <tr>
+                <th>Convention collective</th>
+                <td>{{ entreprise.conventionCollective }}</td>
+                <td class="px-5">-</td>
+                <th>Statut juridique</th>
+                <td>{{ entreprise.statut }}</td>
+            </tr>
+            <tr>
+                <th>Nombre de salariés</th>
+                <td>{{ entreprise.nbSalaries }}</td>
+                <td class="px-5"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div><br>
+
+{% endblock %}
