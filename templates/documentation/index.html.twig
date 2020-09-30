@@ -17,7 +17,7 @@
 
 	<article>
 		<h4>Affichage de la liste des étudiants</h4>
-		<p>Pour afficher la liste des étudiants toute formation confondue, cliquez dans la barre de menu sur l'onglet <a href="#">"Formations"</a>.</p>
+		<p>Pour afficher la liste des étudiants toute formation confondue, cliquez dans la barre de menu sur l'onglet <a href="{{path('formation_index')}}">"Formations"</a>.</p>
 		<p>Lors de la création d'un étudiant, les champs à remplir obligatoirement sont les suivants :
 			<ul>
 				<li>ajouter champs not null d'après la BDD</li>
@@ -29,7 +29,7 @@
 
 	<article>
 		<h4>Ajout d'un étudiant</h4>
-		<p>Pour ajouter un étudiant, rendez vous sur la page <a href="#">"Formations"</a> et cliquez sur le bouton "Ajouter" au-dessus de la liste des étudiants.</p>
+		<p>Pour ajouter un étudiant, rendez vous sur la page <a href="{{path('formation_index')}}">"Formations"</a> et cliquez sur le bouton "Ajouter" au-dessus de la liste des étudiants.</p>
 		<p>Si l'étudiant a déjà une entreprise d'accueil, vous devrez choisir son entreprise et son tuteur dans la liste déroulante prévue à cet effet. Pour cela, vous devez donc avoir déjà créé l'entreprise d'accueil dans l'onglet <a href="{{path('entreprise_index')}}">"Entreprises"</a> et le tuteur dans l'onglet <a href="{{path('tuteur_index')}}">"Tuteurs"</a>.</p>
 		<p>Si l'étudiant n'a pas d'entreprise, vous pouvez laisser ce champ vide.</p>
 	</article>
