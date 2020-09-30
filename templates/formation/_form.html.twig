@@ -1,4 +1,5 @@
 {{ form_start(form) }}
-    {{ form_row(form.libelle, {'attr': {'class': 'form-control', 'placeholder' : 'libelle'}}) }}
+    {{ form_row(form.code, {'attr': {'class': 'form-control', 'placeholder' : 'Code'}}) }}
+    {{ form_row(form.libelle, {'attr': {'class': 'form-control', 'placeholder' : 'Libelle'}}) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

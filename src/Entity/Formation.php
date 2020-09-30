@@ -29,6 +29,11 @@ class Formation
      */
     private $etudiants;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $code;
+
     public function __construct()
     {
         $this->etudiants = new ArrayCollection();
@@ -85,5 +90,17 @@ class Formation
     public function __toString()
     {
         return $this->getLibelle();
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
     }
 }

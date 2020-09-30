@@ -12,6 +12,7 @@
 	<table class="table custom-table">
 		<thead>
 			<tr>
+				<th>Code</th>
 				<th>Libelle</th>
 				<th>Actions</th>
 			</tr>
@@ -19,6 +20,7 @@
 		<tbody>
 			{% for formation in formations %}
 				<tr>
+					<td>{{ formation.code }}</td>
 					<td>{{ formation.libelle }}</td>
 					<td>
 						<button data-target="#formModal" data-toggle="modal" class="btn btn-primary " onclick="OpenModal('{{path('formation_edit', {'id': formation.id})}}')">Modifier</button>
