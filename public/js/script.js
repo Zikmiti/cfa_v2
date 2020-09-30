@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    $("#wrapper").addClass("menuDisplayed");
 
     function archiveFunction() {
         swal({
@@ -63,6 +62,14 @@ $(document).ready(function () {
 
         case "/Accueil":
             activeMenu('Accueil');
+            break;
+
+        case "/documentation":
+            activeMenu('Documentation');
+            break;
+
+        case "/formation/":
+            activeMenu('Formations');
             break;
 
         default:
