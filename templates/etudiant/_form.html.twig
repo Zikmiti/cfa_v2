@@ -1,0 +1,144 @@
+
+
+<br>
+{{ form_start(form) }}
+<div class="my-custom-class-for-errors">
+	{{ form_errors(form) }}
+</div>
+
+<div class="row form-group">
+	<div class="col-md-3">
+		{{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'placeholder' : 'prenom'}}) }}
+
+	</div>
+	<div class="col-md-3 ">
+		{{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder' : 'nom'}}) }}
+	</div>
+	<div class="col-md-4">
+		{{ form_widget(form.date_naiss, {'attr': {'class': 'form-control',}}) }}
+
+	</div>
+	<div class="col-md-1 ">
+		{{ form_widget(form.age, {'attr': {'class': 'form-control', 'placeholder' : 'âge'}}) }}
+	</div>
+	<div class="col-md-1">
+		{{ form_widget(form.sexe, {'attr': {'class': 'form-control', 'placeholder' : 'sexe'}}) }}
+
+	</div>
+</div>
+<div class="row form-group">
+	<div class="col-md-3 ">
+		{{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder' : 'email'}}) }}
+	</div>
+	<div class="col-md-3 ">
+		{{ form_widget(form.adresse, {'attr': {'class': 'form-control', 'placeholder' : 'adresse'}}) }}
+	</div>
+	<div class="col-md-2">
+		{{ form_widget(form.commune, {'attr': {'class': 'form-control', 'placeholder' : 'commune'}}) }}
+	</div>
+	<div class="col-md-2 ">
+		{{ form_widget(form.telephone, {'attr': {'class': 'form-control', 'placeholder' : 'tel'}}) }}
+	</div>
+	<div class="col-md-2 ">
+		{{ form_widget(form.cp, {'attr': {'class': 'form-control', 'placeholder' : 'CP'}}) }}
+	</div>
+</div>
+
+<div class="row form-group">
+	<div class="col-md-3 ">
+		{{ form_widget(form.lieu_naiss, {'attr': {'class': 'form-control', 'placeholder' : 'lieu de naissance'}}) }}
+	</div>
+	<div class="col-md-3 ">
+		{{ form_widget(form.nationalite, {'attr': {'class': 'form-control', 'placeholder' : 'nationalité'}}) }}
+	</div>
+	<div class="col-md-3">
+		{{ form_widget(form.num_cafat, {'attr': {'class': 'form-control', 'placeholder' : 'n° CAFAT'}}) }}
+	</div>
+    <div class="col-md-3 ">
+		{{ form_widget(form.bp, {'attr': {'class': 'form-control', 'placeholder' : 'BP'}}) }}
+	</div>
+</div>
+<hr>
+<div class="row form-group">
+	<div class="col-md-3 ">
+		{{ form_widget(form.annee_prec, {'attr': {'class': 'form-control', 'placeholder' : ''}}) }}
+	</div>
+	<div class="col-md-3">
+		{{ form_widget(form.dernier_emploi, {'attr': {'class': 'form-control', 'placeholder' : 'dernier emploi ?'}}) }}
+
+	</div>
+	<div class="col-md-3 ">
+		{{ form_widget(form.etablissement, {'attr': {'class': 'form-control', 'placeholder' : 'qu\'elle établissement'}}) }}
+	</div>
+	<div class="col-md-3 ">
+		{{ form_widget(form.dernier_diplome, {'attr': {'class': 'form-control', 'placeholder' : 'dernier diplôme'}}) }}
+	</div>
+</div>
+<div class="row form-group">
+	<div class="col-md-4">
+		{{ form_widget(form.annee_dernier_diplome, {'attr': {'class': 'form-control', 'placeholder' : 'annee d\'obtention du diplôme'}}) }}
+
+	</div>
+	<div class="col-md-4 ">
+		{{ form_widget(form.diplome_en_cours, {'attr': {'class': 'form-control', 'placeholder' : 'diplôme en cour'}}) }}
+	</div>
+	<div class="col-md-4 ">
+		{{ form_widget(form.observations, {'attr': {'class': 'form-control', 'placeholder' : 'observation'}}) }}
+	</div>
+</div>
+<div class="row form-group">
+	<div class="col-md-4 ">
+		{{ form_widget(form.type_formation, {'attr': {'class': 'form-control', 'placeholder' : 'formation'}}) }}
+	</div>
+	<div class="col-md-4 ">
+		{{ form_widget(form.licence, {'attr': {'class': 'form-control', 'placeholder' : 'licence'}}) }}
+	</div>
+	<div class="col-md-4 ">
+		{{ form_widget(form.inscription, {'attr': {'class': 'form-control', 'placeholder' : 'inscrit'}}) }}
+	</div>
+</div>
+<div class="row form-group">
+	<div class="col-md-6 ">
+		{{ form_widget(form.confirm_entretien, {'attr': {'class': 'form-control', 'placeholder' : 'confirmation d\'entretien'}}) }}
+	</div>
+	<div class="col-md-6">
+		{{ form_widget(form.admis_list_comp, {'attr': {'class': 'form-control', 'placeholder' : 'list complémentaire'}}) }}
+	</div>
+</div>
+<hr>
+<div class="row form-group">
+	<div class="col-md-4">
+		<div class="col-md-12 ">
+			{{ form_row(form.presence_info_cfa) }}
+		</div>
+		<div class="col-md-12 ">
+			{{ form_row(form.presence_atelier) }}
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="col-md-12 ">
+			{{ form_row(form.presence_job_dating) }}
+		</div>
+		<div class="col-md-12 ">
+			{{ form_row(form.handicap) }}
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="col-md-12 ">
+			{{ form_row(form.admissibilite) }}
+		</div>
+		<div class="col-md-12 ">
+			{{ form_row(form.decua_rempli) }}
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class="col-md-12">
+			{{ form_row(form.droit_img) }}
+		</div>
+	</div>
+</div>
+<div class="text-center">
+<button class="btn btn-primary  ">{{ button_label|default('Ajouter') }}</button>
+</div>
+{{ form_end(form) }}
