@@ -170,6 +170,12 @@ thead > tr {
   text-align: center;
 }
 
+.col-8 > h1:nth-child(1) {
+  background-color: #3b5998;
+  color:#fff;
+  text-align: center;
+}
+
 .modal-lg{
   max-width: 1200px;
 }
@@ -662,3 +668,6 @@ tbody > tr > td {
   div.dataTables_wrapper div.dataTables_info { margin-top: 20px; margin-left: 100px; }
   table.dataTable > tbody > tr.child > td { text-align: start; }
   table.dataTable > tbody > tr.child ul.dtr-details > li { margin-left: 40px; }
+
+  /* custom table show */
+
