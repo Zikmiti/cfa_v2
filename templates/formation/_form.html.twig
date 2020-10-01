@@ -1,5 +1,28 @@
+<br>
+
 {{ form_start(form) }}
-    {{ form_row(form.code, {'attr': {'class': 'form-control', 'placeholder' : 'Code'}}) }}
-    {{ form_row(form.libelle, {'attr': {'class': 'form-control', 'placeholder' : 'Libelle'}}) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+<div class="my-custom-class-for-errors"> {{ form_errors(form) }} </div>
+
+<div class="col-10 mx-auto">
+
+    <hr>
+
+    <div class="row form-group">
+        <div class="col-4">
+            {{ form_row(form.code, {'attr': {'class': 'form-control', 'placeholder' : 'Code'}}) }}
+        </div>
+        <div class="col-8">
+            {{ form_row(form.libelle, {'attr': {'class': 'form-control', 'placeholder' : 'Libellé'}}) }}
+        </div>
+    </div>
+
+    <hr><br>
+
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+
+</div><br>
+
 {{ form_end(form) }}

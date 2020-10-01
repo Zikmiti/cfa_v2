@@ -9,7 +9,9 @@
 		<i class="fas fa-plus"></i>
 	</button>
 
-	<table class="table custom-table">
+    <br><br>
+
+	<table id="datatable-example" class="table dt-responsive custom-table nowrap">
 		<thead>
 			<tr>
 				<th>Nom</th>
@@ -27,8 +29,13 @@
 					<td>{{ etudiant.telephone }}</td>
 					<td>{{ etudiant.email }}</td>
 					<td>
-						<button data-target="#formModal" data-toggle="modal" class="btn btn-primary " onclick="OpenModal('{{path('etudiant_edit', {'id': etudiant.id})}}')">Modifier</button>
-						{{ include('etudiant/_delete_form.html.twig') }}
+						<button data-target="#formModal" data-toggle="modal" class="btn btn-warning text-white" onclick="OpenModal('{{path('etudiant_show', {'id': etudiant.id})}}')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button data-target="#formModal" data-toggle="modal" class="btn btn-primary " onclick="OpenModal('{{path('etudiant_edit', {'id': etudiant.id})}}')">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        {{ include('etudiant/_delete_form.html.twig') }}
 					</td>
 				</tr>
 			{% else %}
@@ -38,9 +45,5 @@
 			{% endfor %}
 		</tbody>
 	</table>
-
-	<div class="navigation">
-		{{ knp_pagination_render(etudiants) }}
-	</div>
 
 {% endblock %}

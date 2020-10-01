@@ -41,7 +41,7 @@ class FormationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($formation);
             $entityManager->flush();
-            $this->addFlash('success', 'Formation Ajouté !');
+            $this->addFlash('success', 'Formation Ajoutée !');
 
             return $this->redirectToRoute('formation_index');
         }
@@ -65,7 +65,7 @@ class FormationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            $this->addFlash('success', 'Formation Modifié !');
+            $this->addFlash('success', 'Formation Modifiée !');
 
             return $this->redirectToRoute('formation_index');
         }
@@ -85,7 +85,7 @@ class FormationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($formation);
             $entityManager->flush();
-            $this->addFlash('success', 'Formation Supprimé !');
+            $this->addFlash('success', 'Formation Supprimée !');
         }
 
         return $this->redirectToRoute('formation_index');

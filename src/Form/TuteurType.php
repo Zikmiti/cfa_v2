@@ -20,6 +20,7 @@ class TuteurType extends AbstractType
             ->add('prenom')
             ->add('fonction_occupe')
             ->add('annee_experience')
+            ->add('diplome_obtenu')
             ->add('diplome_max')
             ->add('telephone')
             ->add('email')

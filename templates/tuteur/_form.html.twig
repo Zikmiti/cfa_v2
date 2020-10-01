@@ -46,11 +46,15 @@
     <hr>
 
     <div class="row form-group">
-        <div class="col-8">
-            Diplôme
-            {{ form_widget(form.diplome_max, {'attr': {'class': 'form-control', 'placeholder' : "Diplôme"}}) }}
+        <div class="col-5">
+            Diplôme obtenu
+            {{ form_widget(form.diplome_obtenu, {'attr': {'class': 'form-control', 'placeholder' : "Diplôme obtenu"}}) }}
         </div>
-        <div class="col-4">
+        <div class="col-5">
+            Dernier diplôme
+            {{ form_widget(form.diplome_max, {'attr': {'class': 'form-control', 'placeholder' : "Dernier diplôme"}}) }}
+        </div>
+        <div class="col-2">
             Date d'obtention du diplôme
             {{ form_widget(form.date_diplome, {'attr': {'class': 'form-control', 'placeholder' : "Date d'obtention du diplôme"}}) }}
         </div>

@@ -1,0 +1,124 @@
+{% block body %}
+
+<div class="col-10 mx-auto">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th colspan="8"><h2>Étudiant</h2></th>
+            </tr>
+        <thead>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ etudiant.id }}</td>
+                <td class="px-5">-</td>
+                <th>Prénom</th>
+                <td>{{ etudiant.prenom }}</td>
+                <td class="px-5">-</td>
+                <th>Nom</th>
+                <td>{{ etudiant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ etudiant.sexe }}</td>
+                <td class="px-5">-</td>
+                <th>Age</th>
+                <td>{{ etudiant.age }}</td>
+                <td class="px-5">-</td>
+                <th>Date de naissance</th>
+                <td>{{ etudiant.date_naiss }}</td>
+            </tr>
+            <tr>
+                <th>Lieu de naissance</th>
+                <td>{{ etudiant.lieu_naiss }}</td>
+                <td class="px-5">-</td>
+                <th>Téléphone</th>
+                <td>{{ etudiant.telephone }}</td>
+                <td class="px-5">-</td>
+                <th>Email</th>
+                <td>{{ etudiant.email }}</td>
+            </tr>
+            <tr>
+                <th>N° CAFAT</th>
+                <td>{{ etudiant.num_cafat }}</td>
+                <td class="px-5">-</td>
+                <th>Adresse</th>
+                <td>{{ etudiant.adresse }}</td>
+                <td class="px-5">-</td>
+                <th>Boîte postale</th>
+                <td>{{ etudiant.bp }}</td>
+            </tr>
+            <tr>
+                <th>Code postal</th>
+                <td>{{ etudiant.cp }}</td>
+                <td class="px-5">-</td>
+                <th>Commune</th>
+                <td>{{ etudiant.commune }}</td>
+                <td class="px-5">-</td>
+                <th>Situation lors de l'année précédente</th>
+                <td>{{ etudiant.annee_prec }}</td>
+            </tr>
+            <tr>
+                <th>Dernier emploi</th>
+                <td>{{ etudiant.dernier_emploi }}</td>
+                <td class="px-5">-</td>
+                <th>Établissement d'origine</th>
+                <td>{{ etudiant.etablissement }}</td>
+                <td class="px-5">-</td>
+                <th>Dernier diplôme</th>
+                <td>{{ etudiant.dernier_diplome }}</td>
+            </tr>
+            <tr>
+                <th>Année de l'obtention du diplôme</th>
+                <td>{{ etudiant.annee_dernier_diplome }}</td>
+                <td class="px-5">-</td>
+                <th>Diplôme en cours</th>
+                <td>{{ etudiant.diplome_en_cours }}</td>
+            </tr>
+            <tr>
+                <th>Handicap</th>
+                <td>{{ etudiant.handicap }}</td>
+                <td class="px-5">-</td>
+                <th>Droit à l'image</th>
+                <td>{{ etudiant.droit_img }}</td>
+                <td class="px-5">-</td>
+                <th>Type de formation</th>
+                <td>{{ etudiant.type_formation }}</td>
+            </tr>
+            <tr>
+                <th>DECUA rempli</th>
+                <td>{{ etudiant.decua_rempli }}</td>
+                <td class="px-5"></td>
+                <td>Admissibilité</td>
+                <td>{{ etudiant.admissibilite }}</td>
+                <td class="px-5"></td>
+                <td>Admis en liste complémentaire</td>
+                <td>{{ etudiant.admis_list_comp }}</td>
+            </tr>
+            <tr>
+                <th>Présence aux informations CFA'Sup</th>
+                <td>{{ etudiant.presence_info_cfa }}</td>
+                <td class="px-5"></td>
+                <td>Présence aux ateliers</td>
+                <td>{{ etudiant.presence_atelier }}</td>
+                <td class="px-5"></td>
+                <td>Formation</td>
+                <td>{{ etudiant.formation }}</td>
+            </tr>
+            <tr>
+                <th>Présence aux Job Dating</th>
+                <td>{{ etudiant.presence_job_dating }}</td>
+                <td class="px-5"></td>
+                <td>Inscription effectuée</td>
+                <td>{{ etudiant.inscription }}</td>
+                <td class="px-5"></td>
+                <td>Observations</td>
+                <td>{{ etudiant.observations }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div><br>
+
+{% endblock %}

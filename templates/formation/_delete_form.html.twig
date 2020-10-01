@@ -1,5 +1,7 @@
-<form method="post" class="d-inline" action="{{ path('etudiant_delete', {'id': formation.id}) }}" id="formDelete" >
+<form method="post" class="d-inline" action="{{ path('etudiant_delete', {'id': formation.id}) }}" id="formDelete" onsubmit="return confirm('Confirmer la suppression de la formation ?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ formation.id) }}" >
-    <button class="btn btn-warning" onclick="archiveFunction()">Supprimer</button>
+    <button class="btn btn-danger text-white">
+        <i class="fas fa-trash-alt"></i>
+    </button>
 </form>
