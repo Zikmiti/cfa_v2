@@ -208,7 +208,7 @@ class Etudiant
         LP COLLABORATEUR SOCIAL ET PAIE
     */
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $licence;
 
@@ -294,6 +294,11 @@ class Etudiant
      * @ORM\ManyToMany(targetEntity=Tuteur::class, mappedBy="etudiants")
      */
     private $tuteurs;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Formation::class, inversedBy="etudiants")
+     */
+    private $formation;
 
     public function __construct()
     {
@@ -698,5 +703,17 @@ class Etudiant
     public function __toString()
     {
         return $this->getNom() . " " . $this->getPrenom();
+    }
+
+    public function getFormation(): ?Formation
+    {
+        return $this->formation;
+    }
+
+    public function setFormation(?Formation $formation): self
+    {
+        $this->formation = $formation;
+
+        return $this;
     }
 }

@@ -50,6 +50,7 @@ class EtudiantController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($etudiant);
             $entityManager->flush();
+            $this->addFlash('success', 'Étudiant Ajouté !');
 
             return $this->redirectToRoute('etudiant_index');
         }
@@ -84,6 +85,7 @@ class EtudiantController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Étudiant Modifié !');
 
             return $this->redirectToRoute('etudiant_index');
         }
@@ -95,7 +97,7 @@ class EtudiantController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="etudiant_delete", methods={"DELETE"})
+     * @Route("/{id}", name="etudiant_delete", requirements={"id":"\d+"}, methods={"DELETE"})
      */
     public function delete(Request $request, Etudiant $etudiant): Response
     {
@@ -103,6 +105,7 @@ class EtudiantController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($etudiant);
             $entityManager->flush();
+            $this->addFlash('success', 'Étudiant Supprimé !');
         }
 
         return $this->redirectToRoute('etudiant_index');

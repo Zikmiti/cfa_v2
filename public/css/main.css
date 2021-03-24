@@ -175,6 +175,36 @@ thead > tr {
 }
 
 
+
+.noty {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    animation-name: fly ;
+    animation-duration: 5s ;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: -120px;
+    margin-right: 50px;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+@keyframes fly {
+  from {
+    margin-bottom:-120px;
+  }
+  75% {
+    margin-bottom: 80px;
+  }
+
+  to {
+    margin-bottom: -120px;
+  }
+}
+
+
 hr{
   background-color:#3b5998 !important;
   margin:20px;
