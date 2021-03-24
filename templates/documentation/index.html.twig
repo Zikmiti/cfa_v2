@@ -4,109 +4,163 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+	.example-wrapper {
+		margin: 1em auto;
+		max-width: 800px;
+		width: 95%;
+		font: 18px/1.5 sans-serif;
+	}
+
+	.example-wrapper code {
+		background: #F5F5F5;
+		padding: 2px 6px;
+	}
 </style>
 
 <div class="example-wrapper">
 
-<h2>Documentation</h2>
+	<h2>Documentation</h2>
 
-<section id="etudiants">
-	<h3>Gestion des étudiants</h3>
+	<section id="etudiants">
+		<h3>Gestion des étudiants</h3>
 
-	<article>
-		<h4>Affichage de la liste des étudiants</h4>
-		<p>Pour afficher la liste des étudiants toute formation confondue, cliquez dans la barre de menu sur l'onglet <a href="#">"Formations"</a>.</p>
-		<p>Lors de la création d'un étudiant, les champs à remplir obligatoirement sont les suivants :
+		<article>
+			<h4>Affichage de la liste des étudiants</h4>
+			<p>Pour afficher la liste des étudiants toute formation confondue, cliquez dans la barre de menu sur
+				l'onglet <a href="#">"Formations"</a>.</p>
+			<p>Lors de la création d'un étudiant, les champs à remplir obligatoirement sont les suivants :
 			<ul>
 				<li>ajouter champs not null d'après la BDD</li>
 			</ul>
-		</p>
-		<p>Pour afficher la liste des étudiants d'une formation spécifique, glissez votre souris sur l'onglet "Formations" et cliquez sur la formation souhaitée dans le menu déroulant qui apparaît.</p>
-		<p>Pour afficher les informations d'un étudiant en particulier, cliquez sur le nom de l'étudiant souhaité dans la liste et une fenêtre de détails apparaîtra. Sur cette nouvelle fenêtre, un onglet "Entreprise" et un onglet "Tuteur" vous permettront d'avoir un accès direct aux informations de l'entreprise et du tuteur de cet étudiant.</p>
-	</article>
+			</p>
+			<p>Pour afficher la liste des étudiants d'une formation spécifique, glissez votre souris sur l'onglet
+				"Formations" et cliquez sur la formation souhaitée dans le menu déroulant qui apparaît.</p>
+			<p>Pour afficher les informations d'un étudiant en particulier, cliquez sur le nom de l'étudiant souhaité
+				dans la liste et une fenêtre de détails apparaîtra. Sur cette nouvelle fenêtre, un onglet "Entreprise"
+				et un onglet "Tuteur" vous permettront d'avoir un accès direct aux informations de l'entreprise et du
+				tuteur de cet étudiant.</p>
+		</article>
 
-	<article>
-		<h4>Ajout d'un étudiant</h4>
-		<p>Pour ajouter un étudiant, rendez vous sur la page <a href="#">"Formations"</a> et cliquez sur le bouton "Ajouter" au-dessus de la liste des étudiants.</p>
-		<p>Si l'étudiant a déjà une entreprise d'accueil, vous devrez choisir son entreprise et son tuteur dans la liste déroulante prévue à cet effet. Pour cela, vous devez donc avoir déjà créé l'entreprise d'accueil dans l'onglet <a href="{{path('entreprise_index')}}">"Entreprises"</a> et le tuteur dans l'onglet <a href="{{path('tuteur_index')}}">"Tuteurs"</a>.</p>
-		<p>Si l'étudiant n'a pas d'entreprise, vous pouvez laisser ce champ vide.</p>
-	</article>
+		<article>
+			<h4>Ajout d'un étudiant</h4>
+			<p>Pour ajouter un étudiant, rendez vous sur la page <a href="#">"Formations"</a> et cliquez sur le bouton
+				"Ajouter" au-dessus de la liste des étudiants.</p>
+			<p>Si l'étudiant a déjà une entreprise d'accueil, vous devrez choisir son entreprise et son tuteur dans la
+				liste déroulante prévue à cet effet. Pour cela, vous devez donc avoir déjà créé l'entreprise d'accueil
+				dans l'onglet <a href="">"Entreprises"</a> et le tuteur dans l'onglet <a
+					href="{{path('tuteur_index')}}">"Tuteurs"</a>.</p>
+			<p>Si l'étudiant n'a pas d'entreprise, vous pouvez laisser ce champ vide.</p>
+		</article>
 
-	<article>
-		<h4>Modification d'un étudiant</h4>
-		<p>Pour modifier les informations d'un étudiant, vous pouvez cliquer directement sur le bouton "modifier" à droite dans la liste des étudiants. Vous pouvez également afficher ses informations détaillées en cliquant sur son nom dans la liste des étudiants. Dans la fenêtre qui apparaît, cliquez sur le bouton "Modifier" en bas à droite. Les informations de l'étudiant se transforment en champs modifiables.</p>
-		<p>Pour annuler une modification, vous pouvez cliquer sur le bouton "Annuler" qui apparaît lorsque vous modifiez les informations d'un étudiant.</p>
-	</article>
+		<article>
+			<h4>Modification d'un étudiant</h4>
+			<p>Pour modifier les informations d'un étudiant, vous pouvez cliquer directement sur le bouton "modifier" à
+				droite dans la liste des étudiants. Vous pouvez également afficher ses informations détaillées en
+				cliquant sur son nom dans la liste des étudiants. Dans la fenêtre qui apparaît, cliquez sur le bouton
+				"Modifier" en bas à droite. Les informations de l'étudiant se transforment en champs modifiables.</p>
+			<p>Pour annuler une modification, vous pouvez cliquer sur le bouton "Annuler" qui apparaît lorsque vous
+				modifiez les informations d'un étudiant.</p>
+		</article>
 
-	<article>
-		<h4>Suppression d'un étudiant</h4>
-		<p>Pour supprimer un étudiant, affichez ses informations détaillées en cliquant sur son nom dans la liste d'étudiants. Dans la fenêtre qui apparaît, cliquez sur le bouton "Supprimer" en bas à gauche. L'application vous demandera de confirmer la suppression. Vous pouvez confirmer ou annuler l'opération.</p>
-		<p>La suppression d'un étudiant entraînera la suppression de son nom de la liste globale des étudiants, de la liste des étudiants de sa formation, ainsi que des informations des entreprises et des tuteurs qui lui sont reliés.</p>
-	</article>
-</section>
+		<article>
+			<h4>Suppression d'un étudiant</h4>
+			<p>Pour supprimer un étudiant, affichez ses informations détaillées en cliquant sur son nom dans la liste
+				d'étudiants. Dans la fenêtre qui apparaît, cliquez sur le bouton "Supprimer" en bas à gauche.
+				L'application vous demandera de confirmer la suppression. Vous pouvez confirmer ou annuler l'opération.
+			</p>
+			<p>La suppression d'un étudiant entraînera la suppression de son nom de la liste globale des étudiants, de
+				la liste des étudiants de sa formation, ainsi que des informations des entreprises et des tuteurs qui
+				lui sont reliés.</p>
+		</article>
+	</section>
 
-<section id="entreprises">
-	<h3>Gestion des entreprises</h3>
+	<section id="entreprises">
+		<h3>Gestion des entreprises</h3>
 
-	<article>
-		<h4>Affichage de la liste des entreprises</h4>
-		<p>Pour afficher la liste des entreprises, cliquez dans la barre de menu sur l'onglet <a href="{{path('entreprise_index')}}">"Entreprises"</a>.</p>
-		<p>Pour afficher les informations d'un entreprise en particulier, cliquez sur le nom de l'entreprise souhaitée dans la liste et une fenêtre de détails apparaîtra. Sur cette nouvelle fenêtre, un onglet "Tuteurs" et un onglet "Étudiants" vous permettront d'avoir un accès direct aux informations des tuteurs et des étudiants reliés à cette entreprise.</p>
-	</article>
+		<article>
+			<h4>Affichage de la liste des entreprises</h4>
+			<p>Pour afficher la liste des entreprises, cliquez dans la barre de menu sur l'onglet <a
+					href="">"Entreprises"</a>.</p>
+			<p>Pour afficher les informations d'un entreprise en particulier, cliquez sur le nom de l'entreprise
+				souhaitée dans la liste et une fenêtre de détails apparaîtra. Sur cette nouvelle fenêtre, un onglet
+				"Tuteurs" et un onglet "Étudiants" vous permettront d'avoir un accès direct aux informations des tuteurs
+				et des étudiants reliés à cette entreprise.</p>
+		</article>
 
-	<article>
-		<h4>Ajout d'une entreprise</h4>
-		<p>Pour ajouter une entreprise, rendez vous sur la page <a href="{{path('entreprise_index')}}">"Entreprises"</a> et cliquez sur le bouton "Ajouter" au-dessus de la liste des entreprises.</p>
-		<p>Pour relier cette entreprise à un étudiant ou à un tuteur, il faut aller dans l'onglet étudiant (ou l'onglet tuteur), ouvrir la fenêtre de modification de cet étudiant (ou du tuteur), et ajouter l'entreprise dans le champ  ........... prévu à cet effet.</p>
-		<p>Lors de la création d'une entreprise, les champs à remplir obligatoirement sont les suivants :
+		<article>
+			<h4>Ajout d'une entreprise</h4>
+			<p>Pour ajouter une entreprise, rendez vous sur la page <a href="">"Entreprises"</a> et cliquez sur le
+				bouton "Ajouter" au-dessus de la liste des entreprises.</p>
+			<p>Pour relier cette entreprise à un étudiant ou à un tuteur, il faut aller dans l'onglet étudiant (ou
+				l'onglet tuteur), ouvrir la fenêtre de modification de cet étudiant (ou du tuteur), et ajouter
+				l'entreprise dans le champ ........... prévu à cet effet.</p>
+			<p>Lors de la création d'une entreprise, les champs à remplir obligatoirement sont les suivants :
 			<ul>
 				<li>ajouter champs not null d'après la BDD</li>
 			</ul>
-		</p>
-	</article>
+			</p>
+		</article>
 
-	<article>
-		<h4>Modification d'une entreprise</h4>
-		<p>Pour modifier les informations d'une entreprise, vous pouvez cliquer directement sur le bouton "modifier" à droite dans la liste des entreprises. Vous pouvez également afficher ses informations détaillées en cliquant sur son nom dans la liste. Dans la fenêtre qui apparaît, cliquez sur le bouton "Modifier" en bas à droite. Les informations de l'entreprise se transforment en champs modifiables.</p>
-		<p>Pour annuler une modification, vous pouvez cliquer sur le bouton "Annuler" qui apparaît lorsque vous modifiez les informations d'une entreprise.</p>
-	</article>
+		<article>
+			<h4>Modification d'une entreprise</h4>
+			<p>Pour modifier les informations d'une entreprise, vous pouvez cliquer directement sur le bouton "modifier"
+				à droite dans la liste des entreprises. Vous pouvez également afficher ses informations détaillées en
+				cliquant sur son nom dans la liste. Dans la fenêtre qui apparaît, cliquez sur le bouton "Modifier" en
+				bas à droite. Les informations de l'entreprise se transforment en champs modifiables.</p>
+			<p>Pour annuler une modification, vous pouvez cliquer sur le bouton "Annuler" qui apparaît lorsque vous
+				modifiez les informations d'une entreprise.</p>
+		</article>
 
-	<article>
-		<h4>Suppression d'une entreprise</h4>
-		<p>Pour supprimer une entreprise, affichez ses informations détaillées en cliquant sur son nom dans la liste d'entreprise. Dans la fenêtre qui apparaît, cliquez sur le bouton "Supprimer" en bas à gauche. L'application vous demandera de confirmer la suppression. Vous pouvez confirmer ou annuler l'opération.</p>
-		<p>La suppression d'une entreprise entraînera la suppression de son nom des informations des étudiants et des tuteurs qui y sont reliés. Les alternants reliés deviendront donc "étudiants" et les tuteurs ne seront plus reliés à aucune entreprise, ainsi que de la liste des entreprises.</p>
-		<p><i>Cette opération est fortement déconseillée lorsque l'entreprise est reliée à au moins un étudiant ou à un tuteur. Conserver ce type d'informations est important pour le suivi.</i></p>
-	</article>
-</section>
+		<article>
+			<h4>Suppression d'une entreprise</h4>
+			<p>Pour supprimer une entreprise, affichez ses informations détaillées en cliquant sur son nom dans la liste
+				d'entreprise. Dans la fenêtre qui apparaît, cliquez sur le bouton "Supprimer" en bas à gauche.
+				L'application vous demandera de confirmer la suppression. Vous pouvez confirmer ou annuler l'opération.
+			</p>
+			<p>La suppression d'une entreprise entraînera la suppression de son nom des informations des étudiants et
+				des tuteurs qui y sont reliés. Les alternants reliés deviendront donc "étudiants" et les tuteurs ne
+				seront plus reliés à aucune entreprise, ainsi que de la liste des entreprises.</p>
+			<p><i>Cette opération est fortement déconseillée lorsque l'entreprise est reliée à au moins un étudiant ou à
+					un tuteur. Conserver ce type d'informations est important pour le suivi.</i></p>
+		</article>
+	</section>
 
-<section id="tuteurs">
-	<h3>Gestion des tuteurs</h3>
+	<section id="tuteurs">
+		<h3>Gestion des tuteurs</h3>
 
-	<article>
-		<h4>Affichage de la liste des tuteurs</h4>
-		<p></p>
-	</article>
+		<article>
+			<h4>Affichage de la liste des tuteurs</h4>
+			<p></p>
+		</article>
 
-	<article>
-		<h4>Ajout d'un tuteur</h4>
-		<p>Pour ajouter un tuteur, rendez vous sur la page <a href="{{path('tuteur_index')}}">"Tuteurs"</a> et cliquez sur le bouton "Ajouter" au-dessus de la liste des tuteurs.</p>
-		<p>Pour ajouter un tuteur, vous devrez choisir son entreprise dans la liste déroulante prévue à cet effet. Pour cela, vous devez donc avoir déjà créé son entreprise dans l'onglet <a href="{{path('entreprise_index')}}">"Entreprises"</a></a>.</p>
-	</article>
+		<article>
+			<h4>Ajout d'un tuteur</h4>
+			<p>Pour ajouter un tuteur, rendez vous sur la page <a href="{{path('tuteur_index')}}">"Tuteurs"</a> et
+				cliquez sur le bouton "Ajouter" au-dessus de la liste des tuteurs.</p>
+			<p>Pour ajouter un tuteur, vous devrez choisir son entreprise dans la liste déroulante prévue à cet effet.
+				Pour cela, vous devez donc avoir déjà créé son entreprise dans l'onglet <a
+					href="">"Entreprises"</a></a>.</p>
+		</article>
 
-	<article>
-		<h4>Modification d'un tuteur</h4>
-		<p>Pour modifier les informations d'un tuteur, vous pouvez cliquer directement sur le bouton "modifier" à droite dans la liste des tuteur. Vous pouvez également afficher ses informations détaillées en cliquant sur son nom dans la liste. Dans la fenêtre qui apparaît, cliquez sur le bouton "Modifier" en bas à droite. Les informations du tuteur se transforment en champs modifiables.</p>
-		<p>Pour annuler une modification, vous pouvez cliquer sur le bouton "Annuler" qui apparaît lorsque vous modifiez les informations d'un tuteur.</p>
-	</article>
+		<article>
+			<h4>Modification d'un tuteur</h4>
+			<p>Pour modifier les informations d'un tuteur, vous pouvez cliquer directement sur le bouton "modifier" à
+				droite dans la liste des tuteur. Vous pouvez également afficher ses informations détaillées en cliquant
+				sur son nom dans la liste. Dans la fenêtre qui apparaît, cliquez sur le bouton "Modifier" en bas à
+				droite. Les informations du tuteur se transforment en champs modifiables.</p>
+			<p>Pour annuler une modification, vous pouvez cliquer sur le bouton "Annuler" qui apparaît lorsque vous
+				modifiez les informations d'un tuteur.</p>
+		</article>
 
-	<article>
-		<h4>Suppression d'un tuteur</h4>
-		<p>Pour supprimer un tuteur, affichez ses informations détaillées en cliquant sur son nom dans la liste des tuteurs. Dans la fenêtre qui apparaît, cliquez sur le bouton "Supprimer" en bas à gauche. L'application vous demandera de confirmer la suppression. Vous pouvez confirmer ou annuler l'opération.</p>
-		<p>La suppression d'un tuteur entraînera la suppression de son nom des informations des entreprises et des étudiants qui lui sont reliés, ainsi que de la liste des tuteurs.</p>
-	</article>
-</section>
+		<article>
+			<h4>Suppression d'un tuteur</h4>
+			<p>Pour supprimer un tuteur, affichez ses informations détaillées en cliquant sur son nom dans la liste des
+				tuteurs. Dans la fenêtre qui apparaît, cliquez sur le bouton "Supprimer" en bas à gauche. L'application
+				vous demandera de confirmer la suppression. Vous pouvez confirmer ou annuler l'opération.</p>
+			<p>La suppression d'un tuteur entraînera la suppression de son nom des informations des entreprises et des
+				étudiants qui lui sont reliés, ainsi que de la liste des tuteurs.</p>
+		</article>
+	</section>
 
 </div>
 {% endblock %}
