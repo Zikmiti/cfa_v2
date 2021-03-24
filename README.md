@@ -1,27 +1,27 @@
-# cfa_v2
 
-Nécessite :
+==========installation librairies|dépendances:=============
 
--Wamp
--php 7.4.9 ou + (normalement wamp a la bonne)
--Composer 
--Symfony
-
-une fois le zip téléchargé :
-dans le dossier du proj ouvrir un invite de commande et run la commande suivante :
-
-- composer install 
+- npm install
+- composer install
 
 
-vous allez devoir créer la base de données avec les commandes symfony et appliquer les migrations. 
-Je vous laisse chercher. 
+Configurer le fichier ".env" à votre convenance. (ligne 32)
 
-le fichier ".env" vous sera utile.
+DATABASE_URL=mysql://[identifiant]:[motdepasse]@127.0.0.1:[port]/cfa?serverVersion=mariadb-[version]
 
-une fois tout bien configuré l'appli se lance avec :
 
--symfony local:server:start
+==================créer la base de donnée====================
+
+- php bin/console doctrine:database:create
 
 
 
-si besoin d'aide pour mettre en place Flo6215#6215 (Discord)
+==================executer les migrations====================
+
+- php bin/console doctrine:migrations:migrate
+
+
+
+==========générer le compte utilisateur + Fake_data==========
+
+- php bin/console doctrine:fixtures:load
